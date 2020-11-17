@@ -215,6 +215,14 @@
 				var rightScrollPos = document.getElementById("body_table").scrollLeft;
 				document.getElementById("header_table").scrollLeft = rightScrollPos; 
 			}
+			
+			var page = "sensor_tab.html";
+			function goto(title) {
+				disp = title + "_display";
+				var e=document.getElementById(disp);
+				document.location = page + "#" + title;
+				e.style.display="block";
+			}
 		</script>
 	</head>
 	<body onload="homePageInit()">
@@ -229,8 +237,8 @@
 					<li><a href="../index.html"><strong>Home page</strong></a></li>
 					<li class="separator"></li>
 					<li><strong>Bibliography search</strong></li>
-					<li><a href="#sensor_tab">2D sensors in literature</a></li>
-					<li><a href="#sources">Sources</a></li>
+					<li><a href="#sensor_tab" onclick="goto('sensor_tab')">2D sensors in literature</a></li>
+					<li><a href="#sources" onclick="goto('sources')">Sources</a></li>
 				</ul>
 				<div class="docs-content">
 					<h2>Bibliography search</h2>

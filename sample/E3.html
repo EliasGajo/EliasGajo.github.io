@@ -307,6 +307,14 @@
 			
 			}); // end am4core.ready()
 		}
+		
+		var page = "E3.html";
+		function goto(title) {
+			disp = title + "_display";
+			var e=document.getElementById(disp);
+			document.location = page + "#" + title;
+			e.style.display="block";
+		}
 		</script>
 	</head>
 	<body onload="homePageInit()">
@@ -321,12 +329,12 @@
 					<li><a href="../index.html"><strong>Home page</strong></a></li>
 					<li class="separator"></li>
 					<li><strong>E3</strong></li>
-					<li><a href="#compo">Composition before patterning</a></li>
-					<li><a href="#prepa">Substrate preparation</a></li>
-					<li><a href="#transf">MoS<SUB>2</SUB> flakes transfer</a></li>
-					<li><a href="#flakes">Interesting regions</a></li>
-					<li><a href="#PPA">PPA spin coating</a></li>
-					<li><a href="#pattern">PPA patterning</a></li>
+					<li><a href="#compo" onclick="goto('compo')">Composition before patterning</a></li>
+					<li><a href="#prepa" onclick="goto('prepa')">Substrate preparation</a></li>
+					<li><a href="#transf" onclick="goto('transf')">MoS<SUB>2</SUB> flakes transfer</a></li>
+					<li><a href="#flakes" onclick="goto('flakes')">Interesting regions</a></li>
+					<li><a href="#PPA" onclick="goto('PPA')">PPA spin coating</a></li>
+					<li><a href="#pattern" onclick="goto('pattern')">PPA patterning</a></li>
 				</ul>
 				<div class="docs-content">
 					<h2>Presentation of the chips</h2>

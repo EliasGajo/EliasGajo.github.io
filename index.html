@@ -185,6 +185,14 @@
 			function goToPage(pagePath){
 				window.location= pagePath;
 			}
+			
+			var page = "index.html";
+			function goto(title) {
+				disp = title + "_display";
+				var e=document.getElementById(disp);
+				document.location = page + "#" + title;
+				e.style.display="block";
+			}
 		</script>
 	</head>
 	<body onload="homePageInit()">
