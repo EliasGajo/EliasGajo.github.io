@@ -327,15 +327,13 @@
 				<ul class="docs-nav" id="menu-left">
 					<li><a href="../../index.html"><strong>Home page</strong></a></li>
 					<li class="separator"></li>
-					<li><strong>RIE experiment 1</strong></li>
+					<li><strong>RIE experiment 2</strong></li>
 					<li><a href="#process" onclick="goto('process')">Process flow</a></li>
 					<li><a href="#prepa" onclick="goto('prepa')">Substrate preparation</a></li>
 					<li><a href="#pattern" onclick="goto('pattern')">PPA patterning</a></li>
 					<li><a href="#RIE" onclick="goto('RIE')">Reactive ion etching</a></li>
 					<li><a href="#PPA" onclick="goto('PPA')">PPA measurement</a></li>
 					<li><a href="#SiO2" onclick="goto('SiO2')">SiO<SUB>2</SUB> measurement</a></li>
-					<li class="separator"></li>
-					<li><a href="../training2/doc.html"><strong>RIE experiment 2</strong></a></li>
 				</ul>
 				<div class="docs-content">
 					<h2>RIE with a He/H<SUB>2</SUB>/C<SUB>4</SUB>F<SUB>8</SUB> recipe</h2>
@@ -352,7 +350,7 @@
 								<p><b>Step 1</b> : Dice a chip of Si + SiO<SUB>2</SUB> and spin coat a PPA layer on it.</p>
 							</div>
 							<div style="position:absolute; top:0px; left:55%; width:45%; height:150px;">
-								<img src="chip_0.PNG" style="max-width:100%; max-height:150px;"></img>
+								<img src="../training1/chip_0.PNG" style="max-width:100%; max-height:150px;"></img>
 							</div>
 						</div>
 						
@@ -362,7 +360,7 @@
 								another chip).</p>
 							</div>
 							<div style="position:absolute; top:0px; left:55%; width:45%; height:150px;">
-								<img src="chip_1.PNG" style="max-width:100%; max-height:150px;"></img>
+								<img src="../training1/chip_1.PNG" style="max-width:100%; max-height:150px;"></img>
 							</div>
 						</div>
 						
@@ -371,7 +369,7 @@
 								<p><b>Step 3</b> : Run the reactive ion etching during a time such that not all the PPA is etched.</p>
 							</div>
 							<div style="position:absolute; top:0px; left:55%; width:45%; height:150px;">
-								<img src="chip_2.PNG" style="max-width:100%; max-height:150px;"></img>
+								<img src="../training1/chip_2.PNG" style="max-width:100%; max-height:150px;"></img>
 							</div>
 						</div>
 						
@@ -380,7 +378,7 @@
 								<p><b>Step 4</b> : Remove the mask from the PPA layer and measure the height of the step induced by the mask (with an AFM).</p>
 							</div>
 							<div style="position:absolute; top:0px; left:55%; width:45%; height:150px;">
-								<img src="chip_3.PNG" style="max-width:100%; max-height:150px;"></img>
+								<img src="../training1/chip_3.PNG" style="max-width:100%; max-height:150px;"></img>
 							</div>
 						</div>
 						
@@ -389,7 +387,7 @@
 								<p><b>Step 5</b> : Remove the PPA layer with an oxygen plasma and measure the depth of the SiO<SUB>2</SUB> patterns (with an AFM).</p>
 							</div>
 							<div style="position:absolute; top:0px; left:55%; width:45%; height:150px;">
-								<img src="chip_4.PNG" style="max-width:100%; max-height:150px;"></img>
+								<img src="../training1/chip_4.PNG" style="max-width:100%; max-height:150px;"></img>
 							</div>
 						</div>
 					</div>
@@ -431,8 +429,8 @@
 					<h3 id="RIE" class="subsection" onclick="return toggleMe('RIE_display')"> Reactive ion etching</h3>
 					<div id="RIE_display">
 						<p>
-							For this RIE experiment, we want to investigate the recipe called "SiO<SUB>2</SUB> PR 3:1" in Cmi. That is a He/H<SUB>2</SUB>/C<SUB>4</SUB>F<SUB>8</SUB>
-							recipe with 175/18/15 sccm flow rates. The total pressure is 4 mTorr.
+							For this RIE experiment, we want to investigate the recipe called "SiO<SUB>2</SUB> PR 5:1" in Cmi. That is a He/H<SUB>2</SUB>/C<SUB>4</SUB>F<SUB>8</SUB>
+							recipe with 175/30/10 sccm flow rates. The total pressure is 4 mTorr.
 						</p>
 						<h4>Chip preparation</h4>
 						<p>
@@ -441,7 +439,7 @@
 						</p>
 						<h4>RIE run</h4>
 						<p>
-							We run a RIE session with the "SiO<SUB>2</SUB> PR 3:1" recipe during 30 seconds.
+							We run a RIE session with the "SiO<SUB>2</SUB> PR 5:1" recipe during 20 seconds.
 						</p>
 					</div>
 					
@@ -460,7 +458,7 @@
 							</div>
 							<script src="step_afm/pattern1/script.js"></script>
 							<script type="text/javascript">
-							drawGraph(data, "chart2", -15, 50);
+							drawGraph(data, "chart2", -40, 70);
 							</script>
 							<div style="position:absolute; top:0px; left:50%; width:50%; height:50px;">
 								<p style="text-align:center;"><b>Scan 2</b></p>
@@ -469,7 +467,7 @@
 							</div>
 							<script src="step_afm/pattern2/script.js"></script>
 							<script type="text/javascript">
-							drawGraph(data, "chart3", -15, 50);
+							drawGraph(data, "chart3", -40, 70);
 							</script>
 						</div>
 						<p>
@@ -484,7 +482,7 @@
 							</div>
 							<script src="step_afm/pattern1/script_filtered.js"></script>
 							<script type="text/javascript">
-							draw2Graph(data, "chart4", -15, 50);
+							draw2Graph(data, "chart4", -20, 90);
 							</script>
 							<div style="position:absolute; top:0px; left:50%; width:50%; height:50px;">
 								<p style="text-align:center;"><b>Scan 2 with filter</b></p>
@@ -493,12 +491,12 @@
 							</div>
 							<script src="step_afm/pattern2/script_filtered.js"></script>
 							<script type="text/javascript">
-							draw2Graph(data, "chart5", -15, 50);
+							draw2Graph(data, "chart5", -20, 90);
 							</script>
 						</div>
 						<p>
 							These low pass filters are moving average filters with a radius of around 4.4 um. With that, we can read the PPA step height which is
-							approximately 20 nm and 16 nm (respectively).
+							approximately 18 nm and 19 nm (respectively).
 						</p>
 					</div>
 					
