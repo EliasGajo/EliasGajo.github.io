@@ -327,7 +327,7 @@
 				<ul class="docs-nav" id="menu-left">
 					<li><a href="../../index.html"><strong>Home page</strong></a></li>
 					<li class="separator"></li>
-					<li><strong>RIE experiment 1</strong></li>
+					<li><strong>RIE experiment 3</strong></li>
 					<li><a href="#process" onclick="goto('process')">Process flow</a></li>
 					<li><a href="#prepa" onclick="goto('prepa')">Substrate preparation</a></li>
 					<li><a href="#pattern" onclick="goto('pattern')">PPA patterning</a></li>
@@ -340,21 +340,25 @@
 					<li><a href="../training4/doc.html"><strong>RIE experiment 4</strong></a></li>
 				</ul>
 				<div class="docs-content">
-					<h2>RIE with a He/H<SUB>2</SUB>/C<SUB>4</SUB>F<SUB>8</SUB> recipe</h2>
+					<h2>RIE with an O<SUB>2</SUB> plasma recipe</h2>
 					<p>
-						 This plasma recipe is interesting for the pattern transfer of the PPA in the SiO<SUB>2</SUB>. Then, in the following experiments we want to determine the etch rate of this plasma recipe in the PPA and in the SiO<SUB>2</SUB>. 
-						 We just want to have a good approximation of these quantities so we perform only fast and easy experiments.
+						 An O<SUB>2</SUB> plasma recipe is useful to isolate our very thin interesting regions for the rest of the MoS<SUB>2</SUB> bulk. To do that, we will spin coat
+						a PPA layer and pattern it such that the contours of the interesting regions are exposed to the air. Then, the O<SUB>2</SUB> plasma will etch these contours 
+						and isolate our interesting regions. In this experiment we will not care about the etch rate in the MoS<SUB>2</SUB> but only about the etch rate in the PPA.
+						Indeed, the PPA etch rate will give us the maximum etching time (the time to etch all the PPA layer) and after we just need to ensure that this maximum etching
+						time is enough to isolate our interesting regions. <br>
+						Then, in the following experiments we want to determine approximately the etch rate of this plasma recipe in the PPA. 
 					</p>
 					
 					<h3 id="process" class="subsection" onclick="return toggleMe('process_display')"> Process flow</h3>
 					<div id="process_display">
-						<p>The following process flow shows how we planned to measure the etched PPA thickness and the etched SiO<SUB>2</SUB> thickness after a RIE run.</p>
+						<p>The following process flow shows how we planned to measure the etched PPA thickness after a RIE run.</p>
 						<div style="position:relative; top:0px; left:0px; width:100%; height:150px;">
 							<div style="position:absolute; top:0px; left:0px; width:50%; height:150px;">
 								<p><b>Step 1</b> : Dice a chip of Si + SiO<SUB>2</SUB> and spin coat a PPA layer on it.</p>
 							</div>
 							<div style="position:absolute; top:0px; left:55%; width:45%; height:150px;">
-								<img src="chip_0.PNG" style="max-width:100%; max-height:150px;"></img>
+								<img src="../training1/chip_0.PNG" style="max-width:100%; max-height:150px;"></img>
 							</div>
 						</div>
 						
@@ -364,7 +368,7 @@
 								another chip).</p>
 							</div>
 							<div style="position:absolute; top:0px; left:55%; width:45%; height:150px;">
-								<img src="chip_1.PNG" style="max-width:100%; max-height:150px;"></img>
+								<img src="../training1/chip_1.PNG" style="max-width:100%; max-height:150px;"></img>
 							</div>
 						</div>
 						
@@ -373,25 +377,16 @@
 								<p><b>Step 3</b> : Run the reactive ion etching during a time such that not all the PPA is etched.</p>
 							</div>
 							<div style="position:absolute; top:0px; left:55%; width:45%; height:150px;">
-								<img src="chip_2.PNG" style="max-width:100%; max-height:150px;"></img>
+								<img src="../training1/chip_2.PNG" style="max-width:100%; max-height:150px;"></img>
 							</div>
 						</div>
 						
-						<div style="position:relative; top:0px; left:0px; width:100%; height:150px; margin-top: 10px;">
-							<div style="position:absolute; top:0px; left:0px; width:50%; height:150px;">
-								<p><b>Step 4</b> : Remove the mask from the PPA layer and measure the height of the step induced by the mask (with an AFM).</p>
+						<div style="position:relative; top:0px; left:0px; width:100%; height:170px; margin-top: 10px;">
+							<div style="position:absolute; top:0px; left:0px; width:50%; height:170px;">
+								<p><b>Step 4</b> : Remove the mask from the PPA layer and measure the pattern depth and the height of the step induced by the mask (with an AFM).</p>
 							</div>
 							<div style="position:absolute; top:0px; left:55%; width:45%; height:150px;">
-								<img src="chip_3.PNG" style="max-width:100%; max-height:150px;"></img>
-							</div>
-						</div>
-						
-						<div style="position:relative; top:0px; left:0px; width:100%; height:150px; margin-top: 10px;">
-							<div style="position:absolute; top:0px; left:0px; width:50%; height:150px;">
-								<p><b>Step 5</b> : Remove the PPA layer with an oxygen plasma and measure the depth of the SiO<SUB>2</SUB> patterns (with an AFM).</p>
-							</div>
-							<div style="position:absolute; top:0px; left:55%; width:45%; height:150px;">
-								<img src="chip_4.PNG" style="max-width:100%; max-height:150px;"></img>
+								<img src="../training1/chip_3.PNG" style="max-width:100%; max-height:150px;"></img>
 							</div>
 						</div>
 					</div>
@@ -409,8 +404,8 @@
 					
 					<h3 id="pattern" class="subsection" onclick="return toggleMe('pattern_display')"> PPA patterning</h3>
 					<div id="pattern_display">
-						<p>We need to pattern some shapes such that they locally remove all the PPA thickness. The theoretical thickness of the PPA is 60 nm, but
-						we choose a target depth of 70 nm to have some margin (In any cases the SiO<SUB>2</SUB> cannot be etched by t-SPL).</p>
+						<p>We need to pattern some shapes such that they locally remove all the PPA thickness. The patterned shape below allows to estimate the etched thickness with
+						an optical microscope.</p>
 						<div style="position:relative; top:0px; left:0px; width:100%; height:300px; margin-top:-30px;">
 							<div style="position:absolute; top:0px; left:0px; width:48%; height:50px;">
 								<p style="text-align:center;"><b>AFM 3D image of the pattern</b></p>
@@ -433,8 +428,8 @@
 					<h3 id="RIE" class="subsection" onclick="return toggleMe('RIE_display')"> Reactive ion etching</h3>
 					<div id="RIE_display">
 						<p>
-							For this RIE experiment, we want to investigate the recipe called "SiO<SUB>2</SUB> PR 3:1" in Cmi. That is a He/H<SUB>2</SUB>/C<SUB>4</SUB>F<SUB>8</SUB>
-							recipe with 175/18/15 sccm flow rates. The total pressure is 4 mTorr.
+							For this RIE experiment, we want to investigate the recipe called "O<SUB>2</SUB> Clean_withWafer_NoEPD" in Cmi. That is an O<SUB>2</SUB>
+							recipe with 100 sccm flow rates. The total pressure is 20 mTorr.
 						</p>
 						<h4>Chip preparation</h4>
 						<p>
@@ -443,72 +438,21 @@
 						</p>
 						<h4>RIE run</h4>
 						<p>
-							We run a RIE session with the "SiO<SUB>2</SUB> PR 3:1" recipe during 30 seconds.
+							We run a RIE session with the "O<SUB>2</SUB> Clean_withWafer_NoEPD" recipe during 2 seconds.
 						</p>
 					</div>
 					
-					<h3 id="PPA" class="subsection" onclick="return toggleMe('PPA_display')"> PPA measurement</h3>
+					<h3 id="PPA" class="subsection" onclick="return toggleMe('PPA_display')"> PPA step measurement</h3>
 					<div id="PPA_display">
 						<p>
-							This part is not as simple as it seems. The main problem is the step is not clean and we have not a sharp transition between the masked region and 
-							the unmasked one. And as we work with the NanoFrazor's AFM, we can't scan a region bigger than 57x57 um<SUP>2</SUP>. So here are the brut results 
-							of two AFM captures on the transition region.
-						</p>
-						<div style="position:relative; top:0px; left:0px; width:100%; height:300px;">
-							<div style="position:absolute; top:0px; left:0px; width:48%; height:50px;">
-								<p style="text-align:center;"><b>Scan 1</b></p>
-							</div>
-							<div id="chart2" style="position:absolute; top:50px; left:0px; width:48%; height:250px;">
-							</div>
-							<script src="step_afm/pattern1/script.js"></script>
-							<script type="text/javascript">
-							drawGraph(data, "chart2", -15, 50);
-							</script>
-							<div style="position:absolute; top:0px; left:50%; width:50%; height:50px;">
-								<p style="text-align:center;"><b>Scan 2</b></p>
-							</div>
-							<div id="chart3" style="position:absolute; top:50px; left:50%; width:50%; height:250px;">
-							</div>
-							<script src="step_afm/pattern2/script.js"></script>
-							<script type="text/javascript">
-							drawGraph(data, "chart3", -15, 50);
-							</script>
-						</div>
-						<p>
-							It is difficult to read anything from these plots as there is high frequencies oscillations and the slope of the substrate hasn't been removed.
-							Let's improve that by correcting the slope and implementing a low pass filter.
-						</p>
-						<div style="position:relative; top:0px; left:0px; width:100%; height:350px;">
-							<div style="position:absolute; top:0px; left:0px; width:48%; height:50px;">
-								<p style="text-align:center;"><b>Scan 1 with filter</b></p>
-							</div>
-							<div id="chart4" style="position:absolute; top:50px; left:0px; width:48%; height:300px;">
-							</div>
-							<script src="step_afm/pattern1/script_filtered.js"></script>
-							<script type="text/javascript">
-							draw2Graph(data, "chart4", -15, 50);
-							</script>
-							<div style="position:absolute; top:0px; left:50%; width:50%; height:50px;">
-								<p style="text-align:center;"><b>Scan 2 with filter</b></p>
-							</div>
-							<div id="chart5" style="position:absolute; top:50px; left:50%; width:50%; height:300px;">
-							</div>
-							<script src="step_afm/pattern2/script_filtered.js"></script>
-							<script type="text/javascript">
-							draw2Graph(data, "chart5", -15, 50);
-							</script>
-						</div>
-						<p>
-							These low pass filters are moving average filters with a radius of around 4.4 um. With that, we can read the PPA step height which is
-							approximately 20 nm and 16 nm (respectively).
+							The AFM (NanoFrazor's AFM) imaging of the PPA step is too bad. We cannot see anything relevant.
 						</p>
 					</div>
 					
-					<h3 id="SiO2" class="subsection" onclick="return toggleMe('SiO2_display')"> SiO<SUB>2</SUB> measurement</h3>
+					<h3 id="SiO2" class="subsection" onclick="return toggleMe('SiO2_display')"> PPA patterns measurement</h3>
 					<div id="SiO2_display">
 						<p>
-							Here are the intermediate results of the patterns. I say intermediate because not all the PPA has been remove and we don't have the complete
-							pattern transfer.
+							Here are the AFM (the NanoFrazor's AFM) results of the patterns after the RIE.
 						</p>
 						<div style="position:relative; top:0px; left:0px; width:100%; height:300px;">
 							<div style="position:absolute; top:0px; left:0px; width:48%; height:50px;">
