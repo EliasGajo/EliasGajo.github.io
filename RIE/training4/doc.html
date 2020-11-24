@@ -335,9 +335,9 @@
 					<li><a href="#PPA" onclick="goto('PPA')">PPA measurement</a></li>
 					<li><a href="#SiO2" onclick="goto('SiO2')">SiO<SUB>2</SUB> measurement</a></li>
 					<li class="separator"></li>
+					<li><a href="../training1/doc.html"><strong>RIE experiment 1</strong></a></li>
 					<li><a href="../training2/doc.html"><strong>RIE experiment 2</strong></a></li>
 					<li><a href="../training3/doc.html"><strong>RIE experiment 3</strong></a></li>
-					<li><a href="../training4/doc.html"><strong>RIE experiment 4</strong></a></li>
 				</ul>
 				<div class="docs-content">
 					<h2>RIE with an O<SUB>2</SUB> plasma recipe</h2>
@@ -445,7 +445,10 @@
 					<h3 id="PPA" class="subsection" onclick="return toggleMe('PPA_display')"> PPA step measurement</h3>
 					<div id="PPA_display">
 						<p>
-							The AFM (NanoFrazor's AFM) imaging of the PPA step is too bad. We cannot see anything relevant.
+							The AFM (NanoFrazor's AFM) imaging of the PPA step is too bad (the region is too noisy) and we cannot determine anything. <br>
+							Then we determine the step height with a reflectometer. 
+							The reflectometer measurement of the PPA thickness was around 60 nm in the masked region and 50 nm in the exposed one. Hence the step height should
+							correspond to something like 10 nm.
 						</p>
 					</div>
 					
@@ -474,6 +477,11 @@
 							drawGraph(data, "chart7", -70, 10);
 							</script>
 						</div>
+						<p>
+							The patterns are almost the same before and after the etching. But the reflectometer measurement shows that the etched PPA 
+							thickness was 10 nm. The explanation is that the patterns didn't go through all the PPA thickness before the RIE. Surely that 
+							the real PPA thickness was around 70 nm (and not 60 nm as predicted by the spin coating theory).
+						</p>
 					</div>
 				</div>
 			</div>
