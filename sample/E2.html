@@ -161,6 +161,9 @@
 			idList[5] = "PPA_display";
 			idList[6] = "pattern_display";
 			idList[7] = "RIE_display";
+			idList[8] = "PPA2_display";
+			idList[9] = "pattern2_display";
+			idList[10] = "RIE2_display";
 			var homePageIdNb = [];
 			homePageIdNb[0] = 0;
 			
@@ -253,7 +256,7 @@
 			}); // end am4core.ready()
 		}
 		
-		function draw2Graph(data, div) {
+		function drawYGraph(data, div) {
 						
 			am4core.ready(function() {
 
@@ -264,48 +267,46 @@
 				var chart = am4core.create(div, am4charts.XYChart);
 				chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 				chart.fontSize = 15;
-						
+				chart.cursor = new am4charts.XYCursor();
 				chart.data = data;
-				chart.legend = new am4charts.Legend();
-				//chart.legend.useDefaultMarker = true;
-				chart.legend.itemContainers.template.paddingLeft = 50;
-				chart.legend.itemContainers.template.paddingRight = 50;
 				
 				var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
 				categoryAxis.dataFields.category = "x";
+				categoryAxis.scale = 1;
+				categoryAxis.title.text = "y profile (um)";
+				var axisToolTip = categoryAxis.tooltip;
+				axisToolTip.background.fill = am4core.color("#07BEB8");
+				axisToolTip.dy = 5;
+				
+				/*var categoryAxis = chart.xAxes.push(new am4charts.ValueAxis());
+				//categoryAxis.dataFields.value = "x";
+				//categoryAxis.scale = 1;
 				categoryAxis.title.text = "x profile (um)";
-				categoryAxis.title.fontWeight = "bold";
+				categoryAxis.extraTooltipPrecision = 1;
+				var axisToolTip = categoryAxis.tooltip;
+				axisToolTip.background.fill = am4core.color("#07BEB8");
+				axisToolTip.dy = 5;*/
 				
 				var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 				valueAxis.title.text = "depth (nm)";
 				valueAxis.tooltip.disabled = true;
-				valueAxis.min = -35;
-				valueAxis.max = 30; 
-				valueAxis.scale = 1;
+				valueAxis.min = -100;
+				valueAxis.max = 10; 
 				valueAxis.strictMinMax = true; 
-				valueAxis.title.fontWeight = "bold";
+				//valueAxis.extraTooltipPrecision = 1;
 		
 				var series = chart.series.push(new am4charts.LineSeries());
 				series.dataFields.categoryX = "x";
-				series.dataFields.valueY = "y1";
-				series.tooltipText = "before : {valueY} nm";
-				series.name = "before etching";
-				series.stroke = am4core.color("green");
-				series.strokeWidth = 2;
+				series.dataFields.valueY = "y";
+				series.tooltip.label.fill = am4core.color("#f00");
+				series.tooltipText = "depth : {valueY} nm";
 				series.dataFields.fontSize = 15;
-				
-				var series2 = chart.series.push(new am4charts.LineSeries());
-				series2.dataFields.categoryX = "x";
-				series2.dataFields.valueY = "y2";
-				series2.tooltipText = "after : {valueY} nm";
-				series2.name = "after etching";
-				series2.stroke = am4core.color("red");
-				series2.strokeWidth = 2;
-				series2.dataFields.fontSize = 15;
+				//series.sequencedInterpolation = true;
+				//series.fillOpacity = 0.3;
 				
 				chart.cursor = new am4charts.XYCursor();
 				chart.cursor.xAxis = categoryAxis;
-				//chart.scrollbarX = new am4core.Scrollbar();
+				chart.scrollbarX = new am4core.Scrollbar();
 			
 			}); // end am4core.ready()
 		}
@@ -338,6 +339,9 @@
 					<li><a href="#PPA" onclick="goto('PPA')">PPA spin coating</a></li>
 					<li><a href="#pattern" onclick="goto('pattern')">PPA patterning</a></li>
 					<li><a href="#RIE" onclick="goto('RIE')">Oxygen plasma RIE</a></li>
+					<li><a href="#PPA2" onclick="goto('PPA2')">PPA spin coating 2</a></li>
+					<li><a href="#pattern2" onclick="goto('pattern2')">PPA patterning 2</a></li>
+					<li><a href="#RIE2" onclick="goto('RIE2')">Oxygen plasma RIE 2</a></li>
 				</ul>
 				<div class="docs-content">
 					<h2>Presentation of the chips</h2>
@@ -561,6 +565,87 @@
 						<h4>Result</h4>
 						<p>
 							Failed ! The first time I put was 30 seconds and it was too much ! All the PPA and most of the MoS<SUB>2</SUB> are gone.
+						</p>
+						<h4>Part 2</h4>
+						<p>
+							There is still some remaining MoS<SUB>2</SUB> on the chip. Thanks to <a href="../RIE/training3/doc.html">RIE experiment 3</a> and 
+							<a href="../RIE/training4/doc.html">RIE experiment 4</a>, we know that the maximum etching time (the time to 
+							remove all the PPA) is around 2.5 seconds. Then we will use this chip to test the interesting regions isolation (as we have no more interesting regions, 
+							we have nothing to loose).
+						</p>
+					</div>
+					
+					<h3 id="PPA2" class="subsection" onclick="return toggleMe('PPA2_display')"> PPA spin coating 2</h3>
+					<div id="PPA2_display">
+						<p>
+							  Steps followed for the fabrication :
+						</p>
+						<ul>
+							<li>Spin coated PPA 3% at 6000 rpm (theoretical thickness : 60 nm)</li>
+							<li>Chip baked at 90 degrees during 3 minutes</li>
+						</ul>
+						<p>
+							Total thickness of the layer : 60 nm
+							<br>
+							Thickness measured : No
+						</p>
+					</div>
+					
+					<h3 id="pattern2" class="subsection" onclick="return toggleMe('pattern2_display')"> PPA patterning 2</h3>
+					<div id="pattern2_display">
+						<p>
+							To test the interesting regions isolation, we have to pattern the contours of some regions. Here are the patterned shapes :
+						</p>
+						<div style="position:relative; top:0px; left:0px; width:100%; height:600px; margin-top:-30px;">
+							<div style="position:absolute; top:0px; left:0px; width:100%; height:50px;">
+								<p style="text-align:center;"><b>Optical microscope image of the pattern</b></p>
+							</div>
+							<div style="position:absolute; top:50px; left:0px; width:100%; height:250px;">
+								<img src="../image/img_elias/E2/pattern2/image.PNG" style="max-width:100%; max-height:250px; display: block; margin-left: auto; margin-right: auto;"></img>
+							</div>
+							<div style="position:absolute; top:300px; left:0%; width:49%; height:50px;">
+								<p style="text-align:center;"><b>Plot of the y profile</b></p>
+							</div>
+							<div id="chart4" style="position:absolute; top:350px; left:0%; width:49%; height:250px;">
+							</div>
+							<script src="../image/img_elias/E2/pattern2/script2.js"></script>
+							<script type="text/javascript">
+							drawYGraph(data, "chart4", -70, 10);
+							</script>
+							<div style="position:absolute; top:300px; left:51%; width:49%; height:50px;">
+								<p style="text-align:center;"><b>Plot of the x profile</b></p>
+							</div>
+							<div id="chart5" style="position:absolute; top:350px; left:51%; width:49%; height:250px;">
+							</div>
+							<script src="../image/img_elias/E2/pattern2/script1.js"></script>
+							<script type="text/javascript">
+							drawGraph(data, "chart5", -70, 10);
+							</script>
+						</div>
+					</div>
+					
+					<h3 id="RIE2" class="subsection" onclick="return toggleMe('RIE2_display')"> Oxygen plasma RIE 2</h3>
+					<div id="RIE2_display">
+						<p>
+							Now we run the reactive ion etching with the "O<SUB>2</SUB> Clean_withWafer_NoEPD" recipe during 2.2 seconds.
+						</p>
+						<div style="position:relative; top:0px; left:0px; width:100%; height:350px;">
+							<div style="position:absolute; top:0px; left:0px; width:48%; height:50px;">
+								<p style="text-align:center;"><b>Before RIE (with patterns in PPA)</b></p>
+							</div>
+							<div style="position:absolute; top:50px; left:0px; width:48%; height:300px;">
+								<img src="../image/img_elias/E2/pattern2/before.PNG" style="max-width:100%; max-height:300px; display: block; margin-left: auto; margin-right: auto;"></img>
+							</div>
+							<div style="position:absolute; top:0px; left:50%; width:50%; height:50px;">
+								<p style="text-align:center;"><b>After RIE</b></p>
+							</div>
+							<div style="position:absolute; top:50px; left:50%; width:50%; height:300px;">
+								<img src="../image/img_elias/E2/pattern2/after.PNG" style="max-width:100%; max-height:300px; display: block; margin-left: auto; margin-right: auto;"></img>
+							</div>
+						</div>
+						<p>
+							We see no differences at the optical microscope. AFM measurements confirm this observation and we can conclude that we etched almost nothing with this 
+							oxygen plasma recipe.
 						</p>
 					</div>
 				</div>
