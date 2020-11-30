@@ -155,11 +155,10 @@
 			var idList = [];
 			idList[0] = "compo_display";
 			idList[1] = "prepa_display";
-			idList[2] = "transf_display";
-			idList[3] = "flakes_display";
-			idList[4] = "hydrophilic_display";
-			idList[5] = "PPA_display";
-			idList[6] = "pattern_display";
+			idList[2] = "PPA_display";
+			idList[3] = "pattern_display";
+			idList[4] = "pat_trans_display";
+			idList[5] = "best_result_display";
 			var homePageIdNb = [];
 			homePageIdNb[0] = 0;
 			
@@ -231,7 +230,7 @@
 				var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 				valueAxis.title.text = "depth (nm)";
 				valueAxis.tooltip.disabled = true;
-				valueAxis.min = -50;
+				valueAxis.min = -70;
 				valueAxis.max = 10; 
 				valueAxis.strictMinMax = true; 
 				//valueAxis.extraTooltipPrecision = 1;
@@ -308,7 +307,8 @@
 			
 			}); // end am4core.ready()
 		}
-		var page = "E1.html";
+		
+		var page = "S1.html";
 		function goto(title) {
 			disp = title + "_display";
 			var e=document.getElementById(disp);
@@ -328,14 +328,13 @@
 				<ul class="docs-nav" id="menu-left">
 					<li><a href="../index.html"><strong>Home page</strong></a></li>
 					<li class="separator"></li>
-					<li><strong>E1</strong></li>
+					<li><strong>Sample 3</strong></li>
 					<li><a href="#compo" onclick="goto('compo')">Composition before patterning</a></li>
 					<li><a href="#prepa" onclick="goto('prepa')">Substrate preparation</a></li>
-					<li><a href="#transf" onclick="goto('transf')">MoS<SUB>2</SUB> flakes transfer</a></li>
-					<li><a href="#flakes" onclick="goto('flakes')">Interesting regions</a></li>
-					<li><a href="#hydrophilic" onclick="goto('hydrophilic')">Hydrophilic treatment</a></li>
 					<li><a href="#PPA" onclick="goto('PPA')">PPA spin coating</a></li>
 					<li><a href="#pattern" onclick="goto('pattern')">PPA patterning</a></li>
+					<li><a href="#pat_trans" onclick="goto('pat_trans')">Pattern transfer</a></li>
+					<li><a href="#best_result" onclick="goto('best_result')">Best result</a></li>
 				</ul>
 				<div class="docs-content">
 					<h2>Presentation of the chips</h2>
@@ -362,11 +361,14 @@
 						Click on a sample to show the details
 					</legend>
 					<hr>
-					<h2>E1</h2>
+					<h2>Sample 3</h2>
 					<p>
-						 This chip contains some exfoliated flakes of MoS<SUB>2</SUB>. These flakes have been transferred onto a Si + SiO<SUB>2</SUB> substrate
-						 without any patterns. Then the aim of this sample (as well as <a href="E2.html">E2</a>, <a href="E3.html">E3</a>, and <a href="E4.html">E4</a>) is to define and isolate the active regions of our 2D material. We will also use the successful
-						 active regions to fabricate a plane surface gas sensor.
+						 This chip will contain some of the final gas sensors. The fabrication contains 3 main steps : 
+						 <ul>
+							<li>Pattern different shapes with the NanoFrazor and transfer these patterns into the SiO<SUB>2</SUB> layer as best as possible.</li>
+							<li>2D material transfer onto the best patterns.</li>
+							<li>Electrodes deposition.</li>
+						 </ul>
 					</p>
 					<h3 id="compo" class="subsection" onclick="return toggleMe('compo_display')"> Composition before patterning</h3>
 					<div class="table100 ver1" id="compo_display">
@@ -399,74 +401,13 @@
 						</div>
 					</div>
 					<h3 id="prepa" class="subsection" onclick="return toggleMe('prepa_display')"> Substrate preparation</h3>
-					<div id="prepa_display">
-						<ul>
-							<li>Diced part of a wafer of Si + 200 nm SiO<SUB>2</SUB></li>
-							<li>Cleaned in acetone during 5 minutes</li>
-							<li>Cleaned in isopropanole during 5 minutes</li>
-							<li>Dried with a N2 gun</li>
-						</ul>
-					</div>
-					
-					<h3 id="transf" class="subsection" onclick="return toggleMe('transf_display')"> MoS<SUB>2</SUB> flakes transfer</h3>
-					<div id="transf_display">
-						<p>Todo</p>
-					</div>
-					
-					<h3 id="flakes" class="subsection" onclick="return toggleMe('flakes_display')"> Interesting regions</h3>
-					<div id="flakes_display">
-						<p>
-							Here are the interesting regions of this chip (the regions where we transferred very thin layers of MoS<SUB>2</SUB>) :
-						</p>
-						<div style="position:relative; top:0px; left:0px;width:100%; height:420px;">
-							<div style="position:absolute; top:0px; left:0px; width:32%; height:200px;">
-								<img src="../image/img_elias/E1/flake1/after.png" style="position:absolute; top:0px; left; 0px; max-width:100%; max-height:160px;"></img>
-								<legend style="position:absolute; top:160px; left; 0px; width:100%; max-height:30px; text-align:center">
-									Region 1
-								</legend>
-							</div>
-							<div style="position:absolute; top:0px; left:34%; width:32%; height:200px;">
-								<img src="../image/img_elias/E1/flake2/after.png" style="position:absolute; top:0px; left; 0px; max-width:100%; max-height:160px;"></img>
-								<legend style="position:absolute; top:160px; left; 0px; width:100%; max-height:30px; text-align:center">
-									Region 2
-								</legend>
-							</div>
-							<div style="position:absolute; top:0px; left:68%; width:32%; height:200px;">
-								<img src="../image/img_elias/E1/flake3/after.png" style="position:absolute; top:0px; left; 0px; max-width:100%; max-height:160px;"></img>
-								<legend style="position:absolute; top:160px; left; 0px; width:100%; max-height:30px; text-align:center">
-									Region 3
-								</legend>
-							</div>
-							<div style="position:absolute; top:220px; left:0%; width:32%; height:200px;">
-								<img src="../image/img_elias/E1/flake4/after.png" style="position:absolute; top:0px; left; 0px; max-width:100%; max-height:160px;"></img>
-								<legend style="position:absolute; top:160px; left; 0px; width:100%; max-height:30px; text-align:center">
-									Region 4
-								</legend>
-							</div>
-							<div style="position:absolute; top:220px; left:34%; width:32%; height:200px;">
-								<img src="../image/img_elias/E1/flake5/after.png" style="position:absolute; top:0px; left; 0px; max-width:100%; max-height:160px;"></img>
-								<legend style="position:absolute; top:160px; left; 0px; width:100%; max-height:30px; text-align:center">
-									Region 5
-								</legend>
-							</div>
-						</div>
-					</div>
-					
-					<h3 id="hydrophilic" class="subsection" onclick="return toggleMe('hydrophilic_display')"> Hydrophilic treatment</h3>
-					<div id="hydrophilic_display">
-						<p>
-							The surface where the MoS<SUB>2</SUB> has been transferred became hydrophobe (due to the scotch tape) and doesn't allow us to spin coat a PPA layer on it. 
-							Then, we apply the following treatment in order to remove this hydrophobicity.
-							<ul>
-								<li>Chip deeped in a remover 1165 solution during 30 minutes</li>
-								<li>Chip deeped in a AZ726MIF solution during 30 minutes</li>
-								<li>Chip rinsed in water</li>
-								<li>Chip rinsed in IPA</li>
-								<li>Chip baked at 110&deg;C during 3 minutes for dehydration</li>
-							</ul>
-						</p>
-					</div>
-					
+					<ul id="prepa_display">
+						<li>Diced part of a wafer of Si + 200 nm SiO<SUB>2</SUB></li>
+						<li>Cleaned in acetone during 5 minutes</li>
+						<li>Cleaned in isopropanole during 5 minutes</li>
+						<li>Dried with a N2 gun</li>
+					</ul>
+				
 					<h3 id="PPA" class="subsection" onclick="return toggleMe('PPA_display')"> PPA spin coating</h3>
 					<div id="PPA_display">
 						<p>
@@ -484,12 +425,195 @@
 							Thickness measured : No
 						</p>
 					</div>
-					
 					<h3 id="pattern" class="subsection" onclick="return toggleMe('pattern_display')"> PPA patterning</h3>
 					<div id="pattern_display">
 						<p>
-							Todo
+							We focus on 3 types of shape : sinusoïdale profile, circular profile, and triangular profile. 
+							<table style="position:relative; width:100%; height:150px;">
+								<tr>
+									<td style="width:30%;">Sinusoïdale profile</td><td style="width:70%;"><img src="../image/sin.png" style="max-height:50px; max-width:100%;"></td>
+								</tr>
+								<tr>
+									<td style="width:30%;">Circular profile</td><td style="width:70%;"><img src="../image/circle.png" style="max-height:50px; max-width:100%;"></td>
+								</tr>
+								<tr>
+									<td style="width:30%;">Triangular profile</td><td style="width:70%;"><img src="../image/tri.png" style="max-height:50px; max-width:100%;"></td>
+								</tr>
+							</table>
+							For each of them, we try 
+							different periods and amplitudes. I present here only the best results for each type of shape.
 						</p>
+						<h4>Sinusoïdale profile</h4>
+						<div style="position:relative; width:100%; height:250px;">
+							<p style="text-align:center;"><U>Period of 225 nm</U></p>
+							<div style="position:absolute; top:50px; left:0px; width:100%; height:200px;">
+								<div style="position:absolute; top:0px; left:0%; width:50%; height:200px;">
+									<img src="../image/img_elias/sample3/sinus/image.PNG" style="max-width:100%; max-height:200px;"></img>
+								</div>
+								<div id="chart1" style="position:absolute; top:0px; left:50%; width:50%; height:200px;"></div>
+								<script src="../image/img_elias/sample3/sinus/script.js"></script>
+								<script type="text/javascript">
+								drawGraph(data, "chart1");
+								</script>
+							</div>
+						</div>
+						
+						<h4>Circular profile</h4>
+						<div style="position:relative; width:100%; height:450px;">
+							<div style="position:absolute; top:0px; left:0px; width:50%; height:450px;">
+								<p style="text-align:center;"><U>Period of 220 nm</U></p>
+								<div style="position:absolute; top:50px; left:0px; width:100%; height:400px;">
+									<div style="position:absolute; top:0px; left:0%; width:100%; height:200px;">
+										<img src="../image/img_elias/sample3/curve/image.PNG" style="max-width:100%; max-height:200px;"></img>
+									</div>
+									<div id="chart2" style="position:absolute; top:200px; left:0%; width:100%; height:200px;"></div>
+									<script src="../image/img_elias/sample3/curve/script.js"></script>
+									<script type="text/javascript">
+									drawGraph(data, "chart2");
+									</script>
+								</div>
+							</div>
+						</div>
+						
+						<h4>Triangular profile</h4>
+						<div style="position:relative; width:100%; height:450px;">
+							<div style="position:absolute; top:0px; left:0px; width:50%; height:450px;">
+								<p style="text-align:center;"><U>Period of 200 nm</U></p>
+								<div style="position:absolute; top:50px; left:0px; width:100%; height:400px;">
+									<div style="position:absolute; top:0px; left:0%; width:100%; height:200px;">
+										<img src="../image/img_elias/sample3/triangle/image.PNG" style="max-width:100%; max-height:200px;"></img>
+									</div>
+									<div id="chart3" style="position:absolute; top:200px; left:0%; width:100%; height:200px;"></div>
+									<script src="../image/img_elias/sample3/triangle/script.js"></script>
+									<script type="text/javascript">
+									drawGraph(data, "chart3");
+									</script>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<h3 id="pat_trans" class="subsection" onclick="return toggleMe('pat_trans_display')"> Pattern transfer</h3>
+					<div id="pat_trans_display">
+						<p>Etching time : 1:15. To transfer the patterns into the SiO<SUB>2</SUB> layer, we use reactive ion etching with a CHF3/SF6 plasma solution.</p>
+						<div class="table100 ver1" id="compo_display">
+							<div class="table100-head">
+								<table>
+									<thead>
+										<tr>
+											<th class="column1">Material</th>
+											<th class="column2">Thickness of the layer</th>
+											<th class="column3">Etch rate</th>
+											<th class="column4">Time to etch all the layer</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+							<div class="table100-body" style="position:relative; top:20px;height:140px">
+								<table>
+									<tbody>
+										<tr>
+											<td class="column1" style="color:#fff; font-size:18px; font-family:Lato-Bold; line-height:1.4">PPA</td>
+											<td class="column2">100 nm</td>
+											<td class="column3">110 nm/min</td>
+											<td class="column4">55 seconds</td>
+										</tr>
+										<tr>
+											<td class="column1" style="color:#fff; font-size:18px; font-family:Lato-Bold; line-height:1.4">SiO<SUB>2</SUB></td>
+											<td class="column2">200 nm</td>
+											<td class="column3">170 nm/min</td>
+											<td class="column4">70 seconds</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<legend style="text-align: center;">
+						CHF3/SF6 plasma solution characteristics
+						</legend>
+						<p>As the patterns begin at the top of the PPA layer, we must etch all the PPA to be sure all the patterns are transferred into the SiO<SUB>2</SUB> layer.
+						But to keep a margin to ensure we don't overetch (etch all the SiO<SUB>2</SUB> layer), we choose a time of 1 minute.</p>
+						
+						<div style="position:relative; top:0px; left:0px; height:1410px; width:100%;">
+							<div style="position:absolute; top:0px; left:0px; height:270px; width:100%; border:2px solid black; border-radius: 10px;">
+								<div class="titlebox"><h4>Sinusoïdale patterns</h4></div>
+								<div style="position:absolute; top:0px; left:0px; height:270px; width:100%;">
+									<div style="position:absolute; top:0px; left:0px; height:20px; width:100%;">
+										<h4 style="text-align:center">225 nm period</h4>
+									</div>
+									<div id="chart_etch_1" style="position:absolute; top:20px; left:2%; width:96%; height:250px;"></div>
+									<script src="../image/img_elias/sample1/sin/s225/after_etching/script.js"></script>
+									<script type="text/javascript">
+									draw2Graph(data, "chart_etch_1");
+									</script>
+								</div>
+							</div>
+							
+							<div style="position:absolute; top:300px; left:0px; height:540px; width:100%; border:2px solid black; border-radius: 10px;">
+								<div class="titlebox"><h4>Circular patterns</h4></div>
+								<div style="position:absolute; top:0px; left:0px; height:270px; width:100%;">
+									<div style="position:absolute; top:0px; left:0px; height:20px; width:100%;">
+										<h4 style="text-align:center">220 nm period</h4>
+									</div>
+									<div id="chart_etch_2" style="position:absolute; top:20px; left:2%; width:96%; height:250px;"></div>
+									<script src="../image/img_elias/sample1/circle/c220/after_etching/script.js"></script>
+									<script type="text/javascript">
+									draw2Graph(data, "chart_etch_2");
+									</script>
+								</div>
+								
+								<div style="position:absolute; top:270px; left:0px; height:270px; width:100%;">
+									<div style="position:absolute; top:0px; left:0px; height:20px; width:100%;">
+										<h4 style="text-align:center">300 nm period</h4>
+									</div>
+									<div id="chart_etch_3" style="position:absolute; top:20px; left:2%; width:96%; height:250px;"></div>
+									<script src="../image/img_elias/sample1/circle/c300/after_etching/script.js"></script>
+									<script type="text/javascript">
+									drawGraph(data, "chart_etch_3");
+									</script>
+								</div>
+							</div>
+							
+							<div style="position:absolute; top:870px; left:0px; height:540px; width:100%; border:2px solid black; border-radius: 10px;">
+								<div class="titlebox"><h4>Triangular patterns</h4></div>
+								<div style="position:absolute; top:0px; left:0px; height:270px; width:100%;">
+									<div style="position:absolute; top:0px; left:0px; height:20px; width:100%;">
+										<h4 style="text-align:center">200 nm period</h4>
+									</div>
+									<div id="chart_etch_4" style="position:absolute; top:20px; left:2%; width:96%; height:250px;"></div>
+									<script src="../image/img_elias/sample1/tri/t200/after_etching/script.js"></script>
+									<script type="text/javascript">
+									draw2Graph(data, "chart_etch_4");
+									</script>
+								</div>
+								
+								<div style="position:absolute; top:270px; left:0px; height:270px; width:100%;">
+									<div style="position:absolute; top:0px; left:0px; height:20px; width:100%;">
+										<h4 style="text-align:center">400 nm period</h4>
+									</div>
+									<div id="chart_etch_5" style="position:absolute; top:20px; left:2%; width:96%; height:250px;"></div>
+									<script src="../image/img_elias/sample1/tri/t400/after_etching/script.js"></script>
+									<script type="text/javascript">
+									draw2Graph(data, "chart_etch_5");
+									</script>
+								</div>
+							</div>
+						</div>
+						<h4>Comments :</h4>
+						<p>The plasma solution was supposed to etch more the SiO<SUB>2</SUB> than the PPA, but the results show the inverse. The etch rate of the CHF3/SF6 plasma
+						into the PPA was extracted from the Yiulya article (I don't know how to write it haha) and seems to be false for our PPA layer. Then, we have to
+						look for another plasma solution if we want to increase the pattern amplitudes during the transfer into the SiO<SUB>2</SUB> (maybe I can see that with the CMi staff ?).</p>
+					</div>
+					
+					<h3 id="best_result" class="subsection" onclick="return toggleMe('best_result_display')"> Best result</h3>
+					<div id="best_result_display">
+						<p>The best transferred patterns are the triangular ones. The smaller the period, the better it is for our application, so we only detail for the 
+						smaller one in this section.</p>
+						<div id="scaled_graph" style="position:relative; top:0px; left:0px; width:800px; height:100px">
+							<p style="text-align:center;"><U>Real scale surface of the triangular 200 nm patterns</U></p>
+							<img src="../image/img_elias/sample1/tri/t200/after_etching/scale.png"></img>
+						</div>
+						<p>The amplitude of the pattern hasn't been amplified during the transfering into the SiO<SUB>2</SUB> layer, hence the aspect ratio is very short. Indeed, the aspect ratio (amplitude / period) is around 0.06.</p>
 					</div>
 				</div>
 			</div>
