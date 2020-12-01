@@ -308,7 +308,7 @@
 			}); // end am4core.ready()
 		}
 		
-		var page = "S1.html";
+		var page = "S3.html";
 		function goto(title) {
 			disp = title + "_display";
 			var e=document.getElementById(disp);
@@ -416,11 +416,11 @@
 							  Steps followed for the fabrication :
 						</p>
 						<ul>
-							<li>Spin coated PPA 5% at 2000 rpm (theoretical thickness : 100 nm)</li>
+							<li>Spin coated PPA 3% at 2000 rpm (theoretical thickness : 60 nm)</li>
 							<li>Chip baked at 90 degrees during 3 minutes</li>
 						</ul>
 						<p>
-							Total thickness of the layer : 100 nm
+							Total thickness of the layer : 60 nm
 							<br>
 							Thickness measured : No
 						</p>
@@ -445,7 +445,7 @@
 						</p>
 						<h4>Sinusoïdale profile</h4>
 						<div style="position:relative; width:100%; height:250px;">
-							<p style="text-align:center;"><U>Period of 225 nm</U></p>
+							<p style="text-align:center;"><U>Period of 400 nm</U></p>
 							<div style="position:absolute; top:50px; left:0px; width:100%; height:200px;">
 								<div style="position:absolute; top:0px; left:0%; width:50%; height:200px;">
 									<img src="../image/img_elias/sample3/sinus/image.PNG" style="max-width:100%; max-height:200px;"></img>
@@ -459,43 +459,39 @@
 						</div>
 						
 						<h4>Circular profile</h4>
-						<div style="position:relative; width:100%; height:450px;">
-							<div style="position:absolute; top:0px; left:0px; width:50%; height:450px;">
-								<p style="text-align:center;"><U>Period of 220 nm</U></p>
-								<div style="position:absolute; top:50px; left:0px; width:100%; height:400px;">
-									<div style="position:absolute; top:0px; left:0%; width:100%; height:200px;">
-										<img src="../image/img_elias/sample3/curve/image.PNG" style="max-width:100%; max-height:200px;"></img>
-									</div>
-									<div id="chart2" style="position:absolute; top:200px; left:0%; width:100%; height:200px;"></div>
-									<script src="../image/img_elias/sample3/curve/script.js"></script>
-									<script type="text/javascript">
-									drawGraph(data, "chart2");
-									</script>
+						<div style="position:relative; width:100%; height:250px;">
+							<p style="text-align:center;"><U>Period of 400 nm</U></p>
+							<div style="position:absolute; top:50px; left:0px; width:100%; height:200px;">
+								<div style="position:absolute; top:0px; left:0%; width:50%; height:200px;">
+									<img src="../image/img_elias/sample3/curve/image.PNG" style="max-width:100%; max-height:200px;"></img>
 								</div>
+								<div id="chart2" style="position:absolute; top:0px; left:50%; width:50%; height:200px;"></div>
+								<script src="../image/img_elias/sample3/curve/script.js"></script>
+								<script type="text/javascript">
+								drawGraph(data, "chart2");
+								</script>
 							</div>
 						</div>
 						
 						<h4>Triangular profile</h4>
-						<div style="position:relative; width:100%; height:450px;">
-							<div style="position:absolute; top:0px; left:0px; width:50%; height:450px;">
-								<p style="text-align:center;"><U>Period of 200 nm</U></p>
-								<div style="position:absolute; top:50px; left:0px; width:100%; height:400px;">
-									<div style="position:absolute; top:0px; left:0%; width:100%; height:200px;">
-										<img src="../image/img_elias/sample3/triangle/image.PNG" style="max-width:100%; max-height:200px;"></img>
-									</div>
-									<div id="chart3" style="position:absolute; top:200px; left:0%; width:100%; height:200px;"></div>
-									<script src="../image/img_elias/sample3/triangle/script.js"></script>
-									<script type="text/javascript">
-									drawGraph(data, "chart3");
-									</script>
+						<div style="position:relative; width:100%; height:250px;">
+							<p style="text-align:center;"><U>Period of 400 nm</U></p>
+							<div style="position:absolute; top:50px; left:0px; width:100%; height:200px;">
+								<div style="position:absolute; top:0px; left:0%; width:50%; height:200px;">
+									<img src="../image/img_elias/sample3/triangle/image.PNG" style="max-width:100%; max-height:200px;"></img>
 								</div>
+								<div id="chart3" style="position:absolute; top:0px; left:50%; width:50%; height:200px;"></div>
+								<script src="../image/img_elias/sample3/triangle/script.js"></script>
+								<script type="text/javascript">
+								drawGraph(data, "chart3");
+								</script>
 							</div>
 						</div>
 					</div>
 					
 					<h3 id="pat_trans" class="subsection" onclick="return toggleMe('pat_trans_display')"> Pattern transfer</h3>
 					<div id="pat_trans_display">
-						<p>Etching time : 1:15. <br> for plasma active region : 8 seconds. <br> for smooth active region : 10 seconds. <br>
+						<p>Etching time : 1:15. <br> for plasma active region : 10 seconds. <br> for smooth active region : 10 seconds. <br>
 						To transfer the patterns into the SiO<SUB>2</SUB> layer, we use reactive ion etching with a CHF3/SF6 plasma solution.</p>
 						<div class="table100 ver1" id="compo_display">
 							<div class="table100-head">

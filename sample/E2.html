@@ -164,6 +164,10 @@
 			idList[8] = "PPA2_display";
 			idList[9] = "pattern2_display";
 			idList[10] = "RIE2_display";
+			idList[11] = "PMGI_display";
+			idList[12] = "PPA3_display";
+			idList[13] = "pattern3_display";
+			idList[14] = "RIE3_display";
 			var homePageIdNb = [];
 			homePageIdNb[0] = 0;
 			
@@ -342,6 +346,10 @@
 					<li><a href="#PPA2" onclick="goto('PPA2')">PPA spin coating 2</a></li>
 					<li><a href="#pattern2" onclick="goto('pattern2')">PPA patterning 2</a></li>
 					<li><a href="#RIE2" onclick="goto('RIE2')">Oxygen plasma RIE 2</a></li>
+					<li><a href="#PMGI" onclick="goto('PMGI')">PMGI spin coating</a></li>
+					<li><a href="#PPA3" onclick="goto('PPA3')">PPA spin coating 3</a></li>
+					<li><a href="#pattern3" onclick="goto('pattern3')">PPA patterning 3</a></li>
+					<li><a href="#RIE3" onclick="goto('RIE3')">RIE 3</a></li>
 				</ul>
 				<div class="docs-content">
 					<h2>Presentation of the chips</h2>
@@ -581,7 +589,7 @@
 							  Steps followed for the fabrication :
 						</p>
 						<ul>
-							<li>Spin coated PPA 3% at 6000 rpm (theoretical thickness : 60 nm)</li>
+							<li>Spin coated PPA 3% at 2000 rpm (theoretical thickness : 60 nm)</li>
 							<li>Chip baked at 90 degrees during 3 minutes</li>
 						</ul>
 						<p>
@@ -646,6 +654,120 @@
 						<p>
 							We see no differences at the optical microscope. AFM measurements confirm this observation and we can conclude that we etched almost nothing with this 
 							oxygen plasma recipe.
+							
+							<h4>Part 3</h4>
+							<p>
+								We failed again the interesting regions isolation but we still have some MoS<SUB>2</SUB> on the chip. The interesting region that we considered in 
+								the part 2 is quite thick and is difficult to etch with an O<SUB>2</SUB> plasma. That is why in the part 3, we will try to isolate the interesting region 
+								with another plasma recipe.
+							</p>
+						</p>
+					</div>
+					
+					<h3 id="PMGI" class="subsection" onclick="return toggleMe('PMGI_display')"> PMGI spin coating</h3>
+					<div id="PMGI_display">
+						<p>
+							The PMGI is not mandatory as the PPA layer will survive to the RIE. However, the surface of the PPA layer will be more flat with a PMGI layer underneath
+							and the patterning will be easier and better.
+							<br>
+							  Steps followed for the fabrication :
+						</p>
+						<ul>
+							<li>Chip baked at 190 degrees during 5 minutes (for dehydration)</li>
+							<li>Spin coated PMGI SF2s at 1000 rpm (theoretical thickness : 90 nm)</li>
+							<li>Chip baked at 190 degrees during 3 minutes</li>
+							<li>Let it cool down</li>
+							<li>Spin coated PMGI SF2s at 1000 rpm (theoretical thickness : 90 nm)</li>
+							<li>Chip baked at 190 degrees during 3 minutes</li>
+						</ul>
+						<p>
+							Total thickness of the layer : 180 nm 
+							<br>
+							  Thickness measured : No
+						</p>
+					</div>
+					
+					<h3 id="PPA3" class="subsection" onclick="return toggleMe('PPA3_display')"> PPA spin coating 3</h3>
+					<div id="PPA3_display">
+						<p>
+							  Steps followed for the fabrication :
+						</p>
+						<ul>
+							<li>Spin coated PPA 3% at 6000 rpm (theoretical thickness : 32 nm)</li>
+							<li>Chip baked at 90 degrees during 3 minutes</li>
+						</ul>
+						<p>
+							Total thickness of the layer : 32 nm
+							<br>
+							Thickness measured : No
+						</p>
+					</div>
+					
+					<h3 id="pattern3" class="subsection" onclick="return toggleMe('pattern3_display')"> Patterning 3</h3>
+					<div id="pattern3_display">
+						<p>
+							To test the interesting regions isolation, we have to pattern the contours of some regions. Here is an example of the following pattern's shape.
+						</p>
+						<div style="position:relative; top:0px; left:0px; width:100%; height:600px; margin-top:-30px;">
+							<div style="position:absolute; top:0px; left:0px; width:100%; height:50px;">
+								<p style="text-align:center;"><b>Typical result of patterning</b></p>
+							</div>
+							<div style="position:absolute; top:50px; left:0px; width:100%; height:250px;">
+								<img src="../image/img_elias/E2/part3/pattern1/image.PNG" style="max-width:100%; max-height:250px; display: block; margin-left: auto; margin-right: auto;"></img>
+							</div>
+							<div style="position:absolute; top:300px; left:0%; width:49%; height:50px;">
+								<p style="text-align:center;"><b>Plot of the y profile</b></p>
+							</div>
+							<div id="chart6" style="position:absolute; top:350px; left:0%; width:49%; height:250px;">
+							</div>
+							<script src="../image/img_elias/E2/part3/pattern1/script2.js"></script>
+							<script type="text/javascript">
+							drawYGraph(data, "chart6", -70, 10);
+							</script>
+							<div style="position:absolute; top:300px; left:51%; width:49%; height:50px;">
+								<p style="text-align:center;"><b>Plot of the x profile</b></p>
+							</div>
+							<div id="chart7" style="position:absolute; top:350px; left:51%; width:49%; height:250px;">
+							</div>
+							<script src="../image/img_elias/E2/part3/pattern1/script1.js"></script>
+							<script type="text/javascript">
+							drawGraph(data, "chart7", -70, 10);
+							</script>
+						</div>
+						<p>
+							Then, we transfer these patterns into the PMGI by wet etching. We applied the same procedure as found in <a href="T3.html">test3</a> for the optimal wet 
+							etching. Here is the optical microscope image of these patterns after the wet etching.
+						</p>
+						<div style="position:relative; top:0px; left:0px; width:100%; height:250px;">
+							<img src="../image/img_elias/E2/part3/wetEtch.JPG" style="max-width:100%; max-height:250px; display: block; margin-left: auto; margin-right: auto;"></img>
+						</div>
+					</div>
+					
+					<h3 id="RIE3" class="subsection" onclick="return toggleMe('RIE3_display')"> RIE 3</h3>
+					<div id="RIE3_display">
+						<p>
+							Now we run the reactive ion etching with the "Si<SUB>3</SUB>N<SUB>4</SUB>_Smooth" recipe during 10 seconds. This recipe was experimented in 
+							<a href="S1.html">sample 1</a> and is interesting as it seems to etch a lot of different materials without beeing too agressive on the PPA. Indeed, 10
+							seconds of RIE will only etch around 20 nm of PPA (and 15 nm of SiO<SUB>2</SUB>).
+						</p>
+						<div style="position:relative; top:0px; left:0px; width:100%; height:250px; margin-top:-30px;">
+							<div style="position:absolute; top:0px; left:0px; width:50%; height:50px;">
+								<p style="text-align:center;"><b>After RIE</b></p>
+							</div>
+							<div style="position:absolute; top:50px; left:0px; width:50%; height:200px;">
+								<img src="../image/img_elias/E2/part3/afterPlasma.JPG" style="max-width:100%; max-height:200px; display: block; margin-left: auto; margin-right: auto;"></img>
+							</div>
+							<div style="position:absolute; top:0px; left:50%; width:50%; height:50px;">
+								<p style="text-align:center;"><b>After lift-off</b></p>
+							</div>
+							<div style="position:absolute; top:50px; left:50%; width:50%; height:200px;">
+								<img src="../image/img_elias/E2/part3/afterLiftoff.JPG" style="max-width:100%; max-height:200px; display: block; margin-left: auto; margin-right: auto;"></img>
+							</div>
+						</div>
+						<p>
+							Now, we see that we achieved to isolate our interesting regions. However, this plasma recipe also etches the SiO<SUB>2</SUB>. AFM measurements show that the etched 
+							thickness of SiO<SUB>2</SUB> is maximum 10 nm under the contours of our interesting regions. In the future, we can reduce this unwanted effect by reducing the 
+							etching time.
 						</p>
 					</div>
 				</div>
