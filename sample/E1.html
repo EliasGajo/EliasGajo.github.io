@@ -158,8 +158,11 @@
 			idList[2] = "transf_display";
 			idList[3] = "flakes_display";
 			idList[4] = "hydrophilic_display";
-			idList[5] = "PPA_display";
-			idList[6] = "pattern_display";
+			idList[5] = "PMGI_display";
+			idList[6] = "PPA_display";
+			idList[7] = "pattern_display";
+			idList[8] = "RIE_display";
+			
 			var homePageIdNb = [];
 			homePageIdNb[0] = 0;
 			
@@ -231,7 +234,7 @@
 				var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 				valueAxis.title.text = "depth (nm)";
 				valueAxis.tooltip.disabled = true;
-				valueAxis.min = -50;
+				valueAxis.min = -130;
 				valueAxis.max = 10; 
 				valueAxis.strictMinMax = true; 
 				//valueAxis.extraTooltipPrecision = 1;
@@ -252,7 +255,7 @@
 			}); // end am4core.ready()
 		}
 		
-		function draw2Graph(data, div) {
+		function drawYGraph(data, div) {
 						
 			am4core.ready(function() {
 
@@ -263,48 +266,46 @@
 				var chart = am4core.create(div, am4charts.XYChart);
 				chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 				chart.fontSize = 15;
-						
+				chart.cursor = new am4charts.XYCursor();
 				chart.data = data;
-				chart.legend = new am4charts.Legend();
-				//chart.legend.useDefaultMarker = true;
-				chart.legend.itemContainers.template.paddingLeft = 50;
-				chart.legend.itemContainers.template.paddingRight = 50;
 				
 				var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
 				categoryAxis.dataFields.category = "x";
+				categoryAxis.scale = 1;
+				categoryAxis.title.text = "y profile (um)";
+				var axisToolTip = categoryAxis.tooltip;
+				axisToolTip.background.fill = am4core.color("#07BEB8");
+				axisToolTip.dy = 5;
+				
+				/*var categoryAxis = chart.xAxes.push(new am4charts.ValueAxis());
+				//categoryAxis.dataFields.value = "x";
+				//categoryAxis.scale = 1;
 				categoryAxis.title.text = "x profile (um)";
-				categoryAxis.title.fontWeight = "bold";
+				categoryAxis.extraTooltipPrecision = 1;
+				var axisToolTip = categoryAxis.tooltip;
+				axisToolTip.background.fill = am4core.color("#07BEB8");
+				axisToolTip.dy = 5;*/
 				
 				var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 				valueAxis.title.text = "depth (nm)";
 				valueAxis.tooltip.disabled = true;
-				valueAxis.min = -35;
-				valueAxis.max = 30; 
-				valueAxis.scale = 1;
+				valueAxis.min = -130;
+				valueAxis.max = 10; 
 				valueAxis.strictMinMax = true; 
-				valueAxis.title.fontWeight = "bold";
+				//valueAxis.extraTooltipPrecision = 1;
 		
 				var series = chart.series.push(new am4charts.LineSeries());
 				series.dataFields.categoryX = "x";
-				series.dataFields.valueY = "y1";
-				series.tooltipText = "before : {valueY} nm";
-				series.name = "before etching";
-				series.stroke = am4core.color("green");
-				series.strokeWidth = 2;
+				series.dataFields.valueY = "y";
+				series.tooltip.label.fill = am4core.color("#f00");
+				series.tooltipText = "depth : {valueY} nm";
 				series.dataFields.fontSize = 15;
-				
-				var series2 = chart.series.push(new am4charts.LineSeries());
-				series2.dataFields.categoryX = "x";
-				series2.dataFields.valueY = "y2";
-				series2.tooltipText = "after : {valueY} nm";
-				series2.name = "after etching";
-				series2.stroke = am4core.color("red");
-				series2.strokeWidth = 2;
-				series2.dataFields.fontSize = 15;
+				//series.sequencedInterpolation = true;
+				//series.fillOpacity = 0.3;
 				
 				chart.cursor = new am4charts.XYCursor();
 				chart.cursor.xAxis = categoryAxis;
-				//chart.scrollbarX = new am4core.Scrollbar();
+				chart.scrollbarX = new am4core.Scrollbar();
 			
 			}); // end am4core.ready()
 		}
@@ -334,8 +335,10 @@
 					<li><a href="#transf" onclick="goto('transf')">MoS<SUB>2</SUB> flakes transfer</a></li>
 					<li><a href="#flakes" onclick="goto('flakes')">Interesting regions</a></li>
 					<li><a href="#hydrophilic" onclick="goto('hydrophilic')">Hydrophilic treatment</a></li>
+					<li><a href="#PMGI" onclick="goto('PMGI')">PMGI spin coating</a></li>
 					<li><a href="#PPA" onclick="goto('PPA')">PPA spin coating</a></li>
-					<li><a href="#pattern" onclick="goto('pattern')">PPA patterning</a></li>
+					<li><a href="#pattern" onclick="goto('pattern')">Patterning</a></li>
+					<li><a href="#RIE" onclick="goto('RIE')">RIE</a></li>
 				</ul>
 				<div class="docs-content">
 					<h2>Presentation of the chips</h2>
@@ -467,30 +470,122 @@
 						</p>
 					</div>
 					
-					<h3 id="PPA" class="subsection" onclick="return toggleMe('PPA_display')"> PPA spin coating</h3>
-					<div id="PPA_display">
-						<p>
-							Role of this layer : Layer to pattern with t-SPL technique.
-							<br>
-							  Steps followed for the fabrication :
-						</p>
-						<ul>
-							<li>Spin coated PPA 5% at 2000 rpm (theoretical thickness : 100 nm)</li>
-							<li>Chip baked at 90 degrees during 3 minutes</li>
-						</ul>
-						<p>
-							Total thickness of the layer : 100 nm
-							<br>
-							Thickness measured : No
-						</p>
+				<h3 id="PMGI" class="subsection" onclick="return toggleMe('PMGI_display')"> PMGI spin coating</h3>
+				<div id="PMGI_display">
+					<p>
+						The PPA layer cannot be too thick (as we cannot pattern too deep shapes with the NanoFrazor), hence we add a PMGI layer to protect the interesting regions 
+						during the RIE. Furthermore, the surface of the PPA layer will be more flat with a PMGI layer underneath
+						and the patterning will be easier and better.
+						<br>
+						  Steps followed for the fabrication :
+					</p>
+					<ul>
+						<li>Chip baked at 190 degrees during 5 minutes (for dehydration)</li>
+						<li>Spin coated PMGI SF2s at 1000 rpm (theoretical thickness : 90 nm)</li>
+						<li>Chip baked at 190 degrees during 3 minutes</li>
+						<li>Let it cool down</li>
+						<li>Spin coated PMGI SF2s at 1000 rpm (theoretical thickness : 90 nm)</li>
+						<li>Chip baked at 190 degrees during 3 minutes</li>
+					</ul>
+					<p>
+						Total thickness of the layer : 180 nm 
+						<br>
+						  Thickness measured : No
+					</p>
+				</div>
+				
+				<h3 id="PPA" class="subsection" onclick="return toggleMe('PPA_display')"> PPA spin coating </h3>
+				<div id="PPA_display">
+					<p>
+						  Steps followed for the fabrication :
+					</p>
+					<ul>
+						<li>Spin coated PPA 3% at 6000 rpm (theoretical thickness : 32 nm)</li>
+						<li>Chip baked at 90 degrees during 3 minutes</li>
+					</ul>
+					<p>
+						Total thickness of the layer : 32 nm
+						<br>
+						Thickness measured : No
+					</p>
+				</div>
+				
+				<h3 id="pattern" class="subsection" onclick="return toggleMe('pattern_display')"> Patterning </h3>
+				<div id="pattern_display">
+					<p>
+						To test the interesting regions isolation, we have to pattern the contours of some regions. Here is an example of the following pattern's shape.
+					</p>
+					<div style="position:relative; top:0px; left:0px; width:100%; height:600px; margin-top:-30px;">
+						<div style="position:absolute; top:0px; left:0px; width:100%; height:50px;">
+							<p style="text-align:center;"><b>Typical result of patterning</b></p>
+						</div>
+						<div style="position:absolute; top:50px; left:0px; width:100%; height:250px;">
+							<img src="../image/img_elias/E1/part3/pattern1/image.PNG" style="max-width:100%; max-height:250px; display: block; margin-left: auto; margin-right: auto;"></img>
+						</div>
+						<div style="position:absolute; top:300px; left:0%; width:49%; height:50px;">
+							<p style="text-align:center;"><b>Plot of the y profile</b></p>
+						</div>
+						<div id="chart1" style="position:absolute; top:350px; left:0%; width:49%; height:250px;">
+						</div>
+						<script src="../image/img_elias/E1/part3/pattern1/script2.js"></script>
+						<script type="text/javascript">
+							drawYGraph(data, "chart1", -70, 10);
+						</script>
+						<div style="position:absolute; top:300px; left:51%; width:49%; height:50px;">
+							<p style="text-align:center;"><b>Plot of the x profile</b></p>
+						</div>
+						<div id="chart2" style="position:absolute; top:350px; left:51%; width:49%; height:250px;">
+						</div>
+						<script src="../image/img_elias/E1/part3/pattern1/script1.js"></script>
+						<script type="text/javascript">
+							drawGraph(data, "chart2", -70, 10);
+						</script>
 					</div>
-					
-					<h3 id="pattern" class="subsection" onclick="return toggleMe('pattern_display')"> PPA patterning</h3>
-					<div id="pattern_display">
-						<p>
-							Todo
-						</p>
+					<p>
+						Then, we transfer these patterns into the PMGI by wet etching. We applied the same procedure as found in <a href="T3.html">test3</a> for the optimal wet 
+						etching. Here is the optical microscope image of these patterns after the wet etching.
+					</p>
+					<div style="position:relative; top:0px; left:0px; width:100%; height:250px; margin-top:-30px;">
+						<div style="position:absolute; top:0px; left:0px; width:50%; height:50px;">
+							<p style="text-align:center;"><b>Region 4</b></p>
+						</div>
+						<div style="position:absolute; top:50px; left:0px; width:50%; height:200px;">
+							<img src="../image/img_elias/E1/part3/wetEtch1.JPG" style="max-width:100%; max-height:200px; display: block; margin-left: auto; margin-right: auto;"></img>
+						</div>
+						<div style="position:absolute; top:0px; left:50%; width:50%; height:50px;">
+							<p style="text-align:center;"><b>Region 5</b></p>
+						</div>
+						<div style="position:absolute; top:50px; left:50%; width:50%; height:200px;">
+							<img src="../image/img_elias/E1/part3/wetEtch2.JPG" style="max-width:100%; max-height:200px; display: block; margin-left: auto; margin-right: auto;"></img>
+						</div>
 					</div>
+				</div>
+				
+				<h3 id="RIE" class="subsection" onclick="return toggleMe('RIE_display')"> RIE</h3>
+				<div id="RIE_display">
+					<p>
+						Now we run the reactive ion etching with the "O<SUB>2</SUB> Clean_withWafer_NoEPD" recipe during 10 seconds. This recipe was experimented in 
+						<a href="../RIE/training3/doc.html">RIE training 3</a> and <a href="../RIE/training4/doc.html">RIE training 4</a> and has a high etch rate in the PPA unlike 
+						the MoS<SUB>2</SUB>. But now that we also have a PMGI layer (of around 180 nm), our chip resists a longer etching time (in this case 10 seconds).
+					</p>
+					<div style="position:relative; top:0px; left:0px; width:100%; height:250px; margin-top:-30px;">
+						<div style="position:absolute; top:0px; left:0px; width:50%; height:50px;">
+							<p style="text-align:center;"><b>Region 4 after RIE</b></p>
+						</div>
+						<div style="position:absolute; top:50px; left:0px; width:50%; height:200px;">
+							<img src="../image/img_elias/E1/part3/afterPlasma1.JPG" style="max-width:100%; max-height:200px; display: block; margin-left: auto; margin-right: auto;"></img>
+						</div>
+						<div style="position:absolute; top:0px; left:50%; width:50%; height:50px;">
+							<p style="text-align:center;"><b>Region 5 after RIE</b></p>
+						</div>
+						<div style="position:absolute; top:50px; left:50%; width:50%; height:200px;">
+							<img src="../image/img_elias/E1/part3/afterPlasma2.JPG" style="max-width:100%; max-height:200px; display: block; margin-left: auto; margin-right: auto;"></img>
+						</div>
+					</div>
+					<p>
+						Now, it seems that our interesting regions are partially isolated (as we notice a very thin layer under the contours). Then, we can only use this procedure to 
+						isolate interesting regions if we are sure that these regions are very thin (probably 2 - 3 atomic layers maximum). 
+					</p>
 				</div>
 			</div>
 		</section>
