@@ -57,15 +57,19 @@
 
 			.column1
 			{
-				width: 25%;
+				width: 15%;
 			}
 
 			.column2
 			{
-				width: 50%;
+				width: 42%;
 			}
 
 			.column3
+			{
+				width: 18%;
+			}
+			.column4
 			{
 				width: 25%;
 			}
@@ -333,7 +337,8 @@
 									<tr>
 										<th class="column1">Name</th>
 										<th class="column2">Recipe</th>
-										<th class="column3">Role</th>
+										<th class="column3">Etching time</th>
+										<th class="column4">Role</th>
 									</tr>
 								</thead>
 							</table>
@@ -341,34 +346,40 @@
 						<div class="table100-body">
 							<table>
 								<tbody>
-									<tr>
+									<tr style="background-color: #ddddff;">
 										<td class="column1 subsection" onclick="goToPage('../training1/doc.html')">Experiment 1</td>
 										<td class="column2">He/H<SUB>2</SUB>/C<SUB>4</SUB>F<SUB>8</SUB> with 175/18/15 sccm flow rates</td>
-										<td class="column3">Pattern transfer</td>
+										<td class="column3">30 s</td>
+										<td class="column4">Pattern transfer</td>
 									</tr>
 									<tr>
 										<td class="column1 subsection" onclick="goToPage('../training2/doc.html')"">Experiment 2</td>
 										<td class="column2">He/H<SUB>2</SUB>/C<SUB>4</SUB>F<SUB>8</SUB> with 175/30/10 sccm flow rates</td>
-										<td class="column3">Pattern transfer</td>
+										<td class="column3">20 s</td>
+										<td class="column4">Pattern transfer</td>
 									</tr>
 									<tr>
 										<td class="column1 subsection" onclick="goToPage('../training3/doc.html')"">Experiment 3</td>
 										<td class="column2">O<SUB>2</SUB> with 100 sccm flow rate</td>
-										<td class="column3">Active regions isolation</td>
+										<td class="column3">2 s</td>
+										<td class="column4">Active regions isolation</td>
 									</tr>
 									<tr>
 										<td class="column1 subsection" onclick="goToPage('../training4/doc.html')"">Experiment 4</td>
 										<td class="column2">O<SUB>2</SUB> with 100 sccm flow rate</td>
-										<td class="column3">Active regions isolation</td>
+										<td class="column3">1 s</td>
+										<td class="column4">Active regions isolation</td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
 					</div>
-					<h2>RIE with a He/H<SUB>2</SUB>/C<SUB>4</SUB>F<SUB>8</SUB> recipe</h2>
+					<h2>Experiment 1</h2>
 					<p>
-						 This plasma recipe is interesting for the pattern transfer of the PPA in the SiO<SUB>2</SUB>. Then, in the following experiments we want to determine the etch rate of this plasma recipe in the PPA and in the SiO<SUB>2</SUB>. 
-						 We just want to have a good approximation of these quantities so we perform only fast and easy experiments.
+						 He/H<SUB>2</SUB>/C<SUB>4</SUB>F<SUB>8</SUB> plasma recipes are interesting for the pattern transfer of the PPA in the SiO<SUB>2</SUB>. There are 2 recipes 
+						 containing these gases in CMi (for the SPTS APS) : "SiO<SUB>2</SUB> PR 3:1" and "SiO<SUB>2</SUB> PR 5:1" which differ in the flow rates. <br> 
+						 In this experiment, we focus on the "SiO<SUB>2</SUB> PR 3:1" and we want to determine its etch rate in PPA and in SiO<SUB>2</SUB>. 
+						 We just want to have good approximations of these quantities so we perform only fast and easy experiments.
 					</p>
 					
 					<h3 id="process" class="subsection" onclick="return toggleMe('process_display')"> Process flow</h3>

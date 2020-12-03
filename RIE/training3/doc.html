@@ -57,51 +57,39 @@
 
 			.column1
 			{
-				width: 20%;
-				padding-left: 40px;
-				font-family: Lato-Bold;
-				font-size: 18px;
-				color: #fff;
-				line-height: 1.4;
-				background-color: #6c7ae0;
+				width: 15%;
 			}
 
 			.column2
 			{
-				width: 13%;
+				width: 42%;
 			}
 
 			.column3
 			{
-				width: 22%;
+				width: 18%;
 			}
-
 			.column4
 			{
-				width: 19%;
-			}
-
-			.column5
-			{
-				width: 13%;
+				width: 25%;
 			}
 
 			.table100-head th
 			{
-				padding-top: 18px;
-				padding-bottom: 18px;
+				padding-top: 5px;
+				padding-bottom: 5px;
 			}
 
 			.table100-body td
 			{
-				padding-top: 16px;
-				padding-bottom: 16px;
+				padding-top: 8px;
+				padding-bottom: 8px;
 			}
 
 			.table100
 			{
 				position: relative;
-				padding-top: 63px;
+				padding-top: 37px;
 			}
 
 			.table100-head
@@ -340,14 +328,59 @@
 					<li><a href="../training4/doc.html"><strong>RIE experiment 4</strong></a></li>
 				</ul>
 				<div class="docs-content">
-					<h2>RIE with an O<SUB>2</SUB> plasma recipe</h2>
+					<h2>RIE experiments</h2>
+					<p>List of the reactive ion etching experiments.</p>
+					<div class="table100 ver1" id="compo_display">
+						<div class="table100-head">
+							<table>
+								<thead>
+									<tr>
+										<th class="column1">Name</th>
+										<th class="column2">Recipe</th>
+										<th class="column3">Etching time</th>
+										<th class="column4">Role</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+						<div class="table100-body">
+							<table>
+								<tbody>
+									<tr>
+										<td class="column1 subsection" onclick="goToPage('../training1/doc.html')">Experiment 1</td>
+										<td class="column2">He/H<SUB>2</SUB>/C<SUB>4</SUB>F<SUB>8</SUB> with 175/18/15 sccm flow rates</td>
+										<td class="column3">30 s</td>
+										<td class="column4">Pattern transfer</td>
+									</tr>
+									<tr>
+										<td class="column1 subsection" onclick="goToPage('../training2/doc.html')"">Experiment 2</td>
+										<td class="column2">He/H<SUB>2</SUB>/C<SUB>4</SUB>F<SUB>8</SUB> with 175/30/10 sccm flow rates</td>
+										<td class="column3">20 s</td>
+										<td class="column4">Pattern transfer</td>
+									</tr>
+									<tr style="background-color: #ddddff;">
+										<td class="column1 subsection" onclick="goToPage('../training3/doc.html')"">Experiment 3</td>
+										<td class="column2">O<SUB>2</SUB> with 100 sccm flow rate</td>
+										<td class="column3">2 s</td>
+										<td class="column4">Active regions isolation</td>
+									</tr>
+									<tr>
+										<td class="column1 subsection" onclick="goToPage('../training4/doc.html')"">Experiment 4</td>
+										<td class="column2">O<SUB>2</SUB> with 100 sccm flow rate</td>
+										<td class="column3">1 s</td>
+										<td class="column4">Active regions isolation</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<h2>Experiment 3</h2>
 					<p>
-						 An O<SUB>2</SUB> plasma recipe is useful to isolate our very thin interesting regions for the rest of the MoS<SUB>2</SUB> bulk. To do that, we will spin coat
-						a PPA layer and pattern it such that the contours of the interesting regions are exposed to the air. Then, the O<SUB>2</SUB> plasma will etch these contours 
-						and isolate our interesting regions. In this experiment we will not care about the etch rate in the MoS<SUB>2</SUB> but only about the etch rate in the PPA.
-						Indeed, the PPA etch rate will give us the maximum etching time (the time to etch all the PPA layer) and after we just need to ensure that this maximum etching
-						time is enough to isolate our interesting regions. <br>
-						Then, in the following experiments we want to determine approximately the etch rate of this plasma recipe in the PPA. 
+						An O<SUB>2</SUB> plasma recipe is interesting for the active regions isolation as it can etch the MoS<SUB>2</SUB> without etching the SiO<SUB>2</SUB>.
+						The idea is to protect the active regions with a PPA layer and to pattern their contours with the NanoFrazor such that they are exposed to the air. As the 
+						PPA is our mask, we need to know how much time it will resist at the oxygen plasma. <br>
+						There is one O<SUB>2</SUB> plasma recipe in CMi (for the SPTS APS), "O<SUB>2</SUB> Clean_withWafer_NoEPD". Then, in this experiment we focus on this 
+						recipe and try to determine approximately its etch rate in the PPA. 
 					</p>
 					
 					<h3 id="process" class="subsection" onclick="return toggleMe('process_display')"> Process flow</h3>
