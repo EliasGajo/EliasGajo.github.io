@@ -78,6 +78,21 @@
 			{
 				width: 13%;
 			}
+			
+			.column1_2
+			{
+				width: 20%;
+			}
+
+			.column2_2
+			{
+				width: 55%;
+			}
+
+			.column3_2
+			{
+				width: 25%;
+			}
 
 			.table100-head th
 			{
@@ -252,7 +267,7 @@
 				<ul class="docs-nav" id="menu-left">
 					<li><a href="../index.html"><strong>Home page</strong></a></li>
 					<li class="separator"></li>
-					<li><strong>Test 1</strong></li>
+					<li><strong>Experiment 1</strong></li>
 					<li><a href="#compo" onclick="goto('compo')">Composition before patterning</a></li>
 					<li><a href="#prepa" onclick="goto('prepa')">Substrate preparation</a></li>
 					<li><a href="#PMGI" onclick="goto('PMGI')">PMGI spin coating</a></li>
@@ -263,33 +278,62 @@
 					<li><a href="#discussion" onclick="goto('discussion')">Discussion</a></li>
 				</ul>
 				<div class="docs-content">
-					<h2>Presentation of the chips</h2>
-					<h3 id="box">Box containing all the chips</h3>
-					<table style="border-collapse: collapse;">
-						<tr class="presentation">
-							<td onclick="goToPage('T1.html')">test1</td>
-							<td onclick="goToPage('T2.html')">test2</td>
-							<td onclick="goToPage('T3.html')">test3</td>
-							<td onclick="goToPage('T4.html')">test4</td>
-							<td>-</td>
-							<td>-</td>
-						</tr>
-						<tr class="presentation">
-							<td onclick="goToPage('S1.html')">sample1</td>
-							<td onclick="goToPage('S2.html')">sample2</td>
-							<td onclick="goToPage('E4.html')">E4</td>
-							<td onclick="goToPage('E3.html')">E3</td>
-							<td onclick="goToPage('E2.html')">E2</td>
-							<td onclick="goToPage('E1.html')">E1</td>
-						</tr>
-					</table>
-					<legend style="text-align: center;">
-						Click on a sample to show the details
-					</legend>
-					<hr>
-					<h2>Test 1</h2>
+					<h2>Evaporation + lift-off experiments</h2>
 					<p>
-						 This chip is used for the lift-off training. We will hence pattern some shapes and test the etching at different times. Then, we will extract  the best parameters to use for the final device lift-off process.
+						Here are the main steps for the metal deposition :
+						<ul>
+							<li>Pattern the zone where we want the metal to be on the PPA.</li>
+							<li>Open the PMGI under these zones by wet etching.</li>
+							<li>Deposit the metal by evaporation.</li>
+							<li>Remove the PMGI and the PPA by lift-off.</li>
+						</ul>
+						List of the evaporation + lift-off experiments :
+					</p>
+					<div class="table100 ver1" id="compo_display" style="padding-top: 37px;">
+						<div class="table100-head">
+							<table>
+								<thead>
+									<tr>
+										<th class="column1_2" style="padding-top:5px; padding-bottom:5px;">Name</th>
+										<th class="column2_2" style="padding-top:5px; padding-bottom:5px;">PPA thickness</th>
+										<th class="column3_2" style="padding-top:5px; padding-bottom:5px;">Wet etching time</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+						<div class="table100-body">
+							<table>
+								<tbody>
+									<tr style="background-color: #ddddff;">
+										<td class="column1_2 subsection" onclick="goToPage('T1.html')" style="padding-top:8px; padding-bottom:8px;">Experiment 1</td>
+										<td class="column2_2" style="padding-top:8px; padding-bottom:8px;">32 nm</td>
+										<td class="column3_2" style="padding-top:8px; padding-bottom:8px;">220 s</td>
+									</tr>
+									<tr>
+										<td class="column1_2 subsection" onclick="goToPage('T2.html')" style="padding-top:8px; padding-bottom:8px;">Experiment 2</td>
+										<td class="column2_2" style="padding-top:8px; padding-bottom:8px;">32 nm</td>
+										<td class="column3_2" style="padding-top:8px; padding-bottom:8px;">240 s</td>
+									</tr>
+									<tr>
+										<td class="column1_2 subsection" onclick="goToPage('T3.html')" style="padding-top:8px; padding-bottom:8px;">Experiment 3</td>
+										<td class="column2_2" style="padding-top:8px; padding-bottom:8px;">45 nm</td>
+										<td class="column3_2" style="padding-top:8px; padding-bottom:8px;">260 s</td>
+									</tr>
+									<tr>
+										<td class="column1_2 subsection" onclick="goToPage('T4.html')" style="padding-top:8px; padding-bottom:8px;">Experiment 4</td>
+										<td class="column2_2" style="padding-top:8px; padding-bottom:8px;">45 nm</td>
+										<td class="column3_2" style="padding-top:8px; padding-bottom:8px;">280 s</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<h2>Experiment 1</h2>
+					<p>
+						 In this experiment, we will pattern some regions on the PPA and test the wet etching through the PMGI during 220 seconds. We will then try different 
+						 times for the wet etching (<a href="T2.html">Experiment 2</a>, <a href="T3.html">Experiment 3</a>, <a href="T4.html">Experiment 4</a>) and 
+						 extract the best one.
+						 
 					</p>
 					<h3 id="compo" class="subsection" onclick="return toggleMe('compo_display')"> Composition before patterning</h3>
 					<div class="table100 ver1" id="compo_display">

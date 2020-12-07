@@ -156,6 +156,7 @@
 			idList[0] = "compo_display";
 			idList[1] = "prepa_display";
 			idList[2] = "PPA_display";
+			idList[3] = "pattern_display";
 			var homePageIdNb = [];
 			homePageIdNb[0] = 0;
 			
@@ -227,7 +228,7 @@
 				var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 				valueAxis.title.text = "depth (nm)";
 				valueAxis.tooltip.disabled = true;
-				valueAxis.min = -50;
+				valueAxis.min = -80;
 				valueAxis.max = 10; 
 				valueAxis.strictMinMax = true; 
 				//valueAxis.extraTooltipPrecision = 1;
@@ -325,12 +326,11 @@
 				<ul class="docs-nav" id="menu-left">
 					<li><a href="../index.html"><strong>Home page</strong></a></li>
 					<li class="separator"></li>
-					<li><strong>Sample 2</strong></li>
+					<li><strong>Sample 7</strong></li>
 					<li><a href="#compo" onclick="goto('compo')">Composition before patterning</a></li>
 					<li><a href="#prepa" onclick="goto('prepa')">Substrate preparation</a></li>
 					<li><a href="#PPA" onclick="goto('PPA')">PPA spin coating</a></li>
-					<li class="separator"></li>
-					<li><a href="S7.html"><strong>Sample 7</strong></a></li>
+					<li><a href="#pattern" onclick="goto('pattern')">PPA patterning</a></li>
 				</ul>
 				<div class="docs-content">
 					<h2>Presentation of the chips</h2>
@@ -390,7 +390,7 @@
 									<tr>
 										<td class="column1" style="color:#fff; font-size:18px; font-family:Lato-Bold; line-height:1.4">Thickness</td>
 										<td class="column2">SiO<SUB>2</SUB> : 200 nm</td>
-										<td class="column3">100 nm</td>
+										<td class="column3">60 nm</td>
 									</tr>
 								</tbody>
 							</table>
@@ -412,14 +412,32 @@
 							  Steps followed for the fabrication :
 						</p>
 						<ul>
-							<li>Spin coated PPA 5% at 2000 rpm (theoretical thickness : 100 nm)</li>
+							<li>Spin coated PPA 3% at 6000 rpm (theoretical thickness : 60 nm)</li>
 							<li>Chip baked at 90 degrees during 3 minutes</li>
 						</ul>
 						<p>
-							Total thickness of the layer : 100 nm
+							Total thickness of the layer : 60 nm
 							<br>
 							Thickness measured : No
 						</p>
+					</div>
+					
+					<h3 id="pattern" class="subsection" onclick="return toggleMe('pattern_display')"> PPA patterning</h3>
+					<div id="pattern_display">
+						<h4>Pattern 1</h4>
+						<div style="position:relative; width:100%; height:250px;">
+							<p style="text-align:center;"><U>300 nm</U></p>
+							<div style="position:absolute; top:50px; left:0px; width:100%; height:200px;">
+								<div style="position:absolute; top:0px; left:0%; width:50%; height:200px;">
+									<img src="../image/img_elias/sample7/pattern1/image.PNG" style="max-width:100%; max-height:200px;"></img>
+								</div>
+								<div id="chart1" style="position:absolute; top:0px; left:50%; width:50%; height:200px;"></div>
+								<script src="../image/img_elias/sample7/pattern1/script.js"></script>
+								<script type="text/javascript">
+								drawGraph(data, "chart1");
+								</script>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
