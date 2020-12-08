@@ -157,6 +157,7 @@
 			idList[1] = "prepa_display";
 			idList[2] = "PPA_display";
 			idList[3] = "pattern_display";
+			idList[4] = "rie_display";
 			var homePageIdNb = [];
 			homePageIdNb[0] = 0;
 			
@@ -194,7 +195,7 @@
 		<script src="../js/amcharts4/charts.js"></script>
 		<script src="../js/amcharts4/themes/animated.js"></script>
 		<script type="text/javascript">
-		function drawGraph(data, div) {
+		function drawGraph(data, div, min, max) {
 						
 			am4core.ready(function() {
 
@@ -228,8 +229,8 @@
 				var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 				valueAxis.title.text = "depth (nm)";
 				valueAxis.tooltip.disabled = true;
-				valueAxis.min = -80;
-				valueAxis.max = 10; 
+				valueAxis.min = min;
+				valueAxis.max = max; 
 				valueAxis.strictMinMax = true; 
 				//valueAxis.extraTooltipPrecision = 1;
 		
@@ -249,7 +250,7 @@
 			}); // end am4core.ready()
 		}
 		
-		function draw2Graph(data, div) {
+		function draw2Graph(data, div, min, max) {
 						
 			am4core.ready(function() {
 
@@ -275,8 +276,8 @@
 				var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 				valueAxis.title.text = "depth (nm)";
 				valueAxis.tooltip.disabled = true;
-				valueAxis.min = -35;
-				valueAxis.max = 30; 
+				valueAxis.min = min;
+				valueAxis.max = max; 
 				valueAxis.scale = 1;
 				valueAxis.strictMinMax = true; 
 				valueAxis.title.fontWeight = "bold";
@@ -306,7 +307,7 @@
 			}); // end am4core.ready()
 		}
 		
-		var page = "S2.html";
+		var page = "S7.html";
 		function goto(title) {
 			disp = title + "_display";
 			var e=document.getElementById(disp);
@@ -331,6 +332,7 @@
 					<li><a href="#prepa" onclick="goto('prepa')">Substrate preparation</a></li>
 					<li><a href="#PPA" onclick="goto('PPA')">PPA spin coating</a></li>
 					<li><a href="#pattern" onclick="goto('pattern')">PPA patterning</a></li>
+					<li><a href="#rie" onclick="goto('rie')">Reactive ion etching</a></li>
 				</ul>
 				<div class="docs-content">
 					<h2>Presentation of the chips</h2>
@@ -357,7 +359,7 @@
 						Click on a sample to show the details
 					</legend>
 					<hr>
-					<h2>Sample 2</h2>
+					<h2>Sample 7</h2>
 					<p>
 						 This chip will contain some of the final gas sensors. The fabrication contains 3 main steps : 
 						 <ul>
@@ -424,19 +426,67 @@
 					
 					<h3 id="pattern" class="subsection" onclick="return toggleMe('pattern_display')"> PPA patterning</h3>
 					<div id="pattern_display">
-						<h4>Pattern 1</h4>
-						<div style="position:relative; width:100%; height:250px;">
-							<p style="text-align:center;"><U>300 nm</U></p>
-							<div style="position:absolute; top:50px; left:0px; width:100%; height:200px;">
-								<div style="position:absolute; top:0px; left:0%; width:50%; height:200px;">
-									<img src="../image/img_elias/sample7/pattern1/image.PNG" style="max-width:100%; max-height:200px;"></img>
-								</div>
-								<div id="chart1" style="position:absolute; top:0px; left:50%; width:50%; height:200px;"></div>
-								<script src="../image/img_elias/sample7/pattern1/script.js"></script>
-								<script type="text/javascript">
-								drawGraph(data, "chart1");
-								</script>
+						<p>The best pattern (called "pattern 1") on this chip is composed of triangular shapes with a period of 300 nm and an amplitude of 60 nm.</p>
+						<div style="position:relative; width:100%; height:270px; border:1px solid black; border-radius: 10px;">
+							<div class="titlebox"><h4>Pattern 1</h4></div>
+							<div style="position:absolute; top:0px; left:0%; width:50%; height:50px;">
+								<p style="text-align:center;"><b>AFM 3D image</b></p>
 							</div>
+							<div style="position:absolute; top:50px; left:0%; width:50%; height:200px;">
+								<img src="../image/img_elias/sample7/pattern1/image.PNG" style="max-width:100%; max-height:200px;"></img>
+							</div>
+							<div style="position:absolute; top:0px; left:50%; width:50%; height:50px;">
+								<p style="text-align:center;"><b>x profile</b></p>
+							</div>
+							<div id="chart1" style="position:absolute; top:50px; left:50%; width:50%; height:200px;"></div>
+							<script src="../image/img_elias/sample7/pattern1/script.js"></script>
+							<script type="text/javascript">
+							drawGraph(data, "chart1", -80, 10);
+							</script>
+						</div>
+					</div>
+					
+					<h3 id="rie" class="subsection" onclick="return toggleMe('rie_display')"> Reactive ion etching</h3>
+					<div id="rie_display">
+						<p>To transfer the patterns into the SiO<SUB>2</SUB> layer, we use reactive ion etching with a CHF3/SF6 plasma solution during 20 seconds (
+							the optimal time is extracted from the <a href="../RIE/training1/doc.html">RIE experiments</a>).
+						</p>
+						<div style="position:relative; width:100%; height:270px; border:1px solid black; border-radius: 10px;">
+							<div class="titlebox"><h4>Pattern 1 transferred</h4></div>
+							<div style="position:absolute; top:0px; left:0%; width:50%; height:50px;">
+								<p style="text-align:center;"><b>AFM 3D image</b></p>
+							</div>
+							<div style="position:absolute; top:50px; left:0%; width:50%; height:200px;">
+								<img src="../image/img_elias/sample7/afterEtching/image.PNG" style="max-width:100%; max-height:200px;"></img>
+							</div>
+							<div style="position:absolute; top:0px; left:50%; width:50%; height:50px;">
+								<p style="text-align:center;"><b>x profile</b></p>
+							</div>
+							<div id="chart2" style="position:absolute; top:50px; left:50%; width:50%; height:200px;"></div>
+							<script src="../image/img_elias/sample7/afterEtching/script.js"></script>
+							<script type="text/javascript">
+							drawGraph(data, "chart2", -110, 10);
+							</script>
+						</div>
+						<p>
+							To see more precisely how does the RIE modify the patterns, let's plot together the patterns before and after the RIE.
+						</p>
+						<div style="position:relative; top:0px; left:0%; width:100%; height:300px;">
+							<div style="position:absolute; top:0px; left:0%; width:100%; height:50px;">
+								<p style="text-align:center;"><b>RIE transformation on pattern 1</b></p>
+							</div>
+							<div id="chart3" style="position:absolute; top:50px; left:0%; width:100%; height:250px;"></div>
+							<script src="../image/img_elias/sample7/comparison/script.js"></script>
+							<script type="text/javascript">
+							draw2Graph(data, "chart3", -110, 10);
+							</script>
+						</div>
+						<p>
+							Now, the waves have still a period of 300 nm but an amplitude of 100 nm, which correspond to an aspect ratio of 0.33 (amplitude / period).
+						</p>
+						<div id="scaled_graph" style="position:relative; top:0px; left:0px; width:800px; height:100px">
+							<p style="text-align:center;"><U>Real scale surface of pattern 1</U></p>
+							<img src="../image/img_elias/sample7/afterEtching/scaled.PNG"></img>
 						</div>
 					</div>
 				</div>
