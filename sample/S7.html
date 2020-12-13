@@ -327,39 +327,61 @@
 				<ul class="docs-nav" id="menu-left">
 					<li><a href="../index.html"><strong>Home page</strong></a></li>
 					<li class="separator"></li>
-					<li><strong>Sample 7</strong></li>
+					<li><strong>Experiment 2</strong></li>
 					<li><a href="#compo" onclick="goto('compo')">Composition before patterning</a></li>
 					<li><a href="#prepa" onclick="goto('prepa')">Substrate preparation</a></li>
 					<li><a href="#PPA" onclick="goto('PPA')">PPA spin coating</a></li>
 					<li><a href="#pattern" onclick="goto('pattern')">PPA patterning</a></li>
 					<li><a href="#rie" onclick="goto('rie')">Reactive ion etching</a></li>
+					<li class="separator"></li>
+					<li><a href="S1.html"><strong>Experiment 1</strong></a></li>
+					<li><a href="S8.html"><strong>Experiment 3</strong></a></li>
 				</ul>
 				<div class="docs-content">
-					<h2>Presentation of the chips</h2>
-					<h3 id="box">Box containing all the chips</h3>
-					<table style="border-collapse: collapse;">
-						<tr class="presentation">
-							<td onclick="goToPage('T1.html')">test1</td>
-							<td onclick="goToPage('T2.html')">test2</td>
-							<td onclick="goToPage('T3.html')">test3</td>
-							<td onclick="goToPage('T4.html')">test4</td>
-							<td>-</td>
-							<td>-</td>
-						</tr>
-						<tr class="presentation">
-							<td onclick="goToPage('S1.html')">sample1</td>
-							<td onclick="goToPage('S2.html')">sample2</td>
-							<td onclick="goToPage('E4.html')">E4</td>
-							<td onclick="goToPage('E3.html')">E3</td>
-							<td onclick="goToPage('E2.html')">E2</td>
-							<td onclick="goToPage('E1.html')">E1</td>
-						</tr>
-					</table>
-					<legend style="text-align: center;">
-						Click on a sample to show the details
-					</legend>
-					<hr>
-					<h2>Sample 7</h2>
+					<h2>Pattern transfer experiments</h2>
+					<p>
+						These experiments consist of two main steps :
+						<ul>
+							<li>Pattern the wavy surfaces on the PPA with the NanoFrazor.</li>
+							<li>Transfer and amplify these patterns into the SiO<SUB>2</SUB>.</li>
+						</ul>
+						List of pattern transfer experiments :
+					</p>
+					<div class="table100 ver1" id="compo_display" style="padding-top: 37px;">
+						<div class="table100-head">
+							<table>
+								<thead>
+									<tr>
+										<th class="column1_2" style="padding-top:5px; padding-bottom:5px;">Name</th>
+										<th class="column2_2" style="padding-top:5px; padding-bottom:5px;">RIE recipe</th>
+										<th class="column3_2" style="padding-top:5px; padding-bottom:5px;">Etching time</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+						<div class="table100-body">
+							<table>
+								<tbody>
+									<tr>
+										<td class="column1_2 subsection" onclick="goToPage('S1.html')" style="padding-top:8px; padding-bottom:8px;">Experiment 1</td>
+										<td class="column2_2" style="padding-top:8px; padding-bottom:8px;">CHF<SUB>3</SUB>/SF<SUB>6</SUB> with 50/10 sccm flow rates</td>
+										<td class="column3_2" style="padding-top:8px; padding-bottom:8px;">1 min</td>
+									</tr>
+									<tr style="background-color: #ddddff;">
+										<td class="column1_2 subsection" onclick="goToPage('S7.html')" style="padding-top:8px; padding-bottom:8px;">Experiment 2</td>
+										<td class="column2_2" style="padding-top:8px; padding-bottom:8px;">He/H<SUB>2</SUB>/C<SUB>4</SUB>F<SUB>8</SUB> with 175/18/15 sccm flow rates</td>
+										<td class="column3_2" style="padding-top:8px; padding-bottom:8px;">20 s</td>
+									</tr>
+									<tr>
+										<td class="column1_2 subsection" onclick="goToPage('S8.html')" style="padding-top:8px; padding-bottom:8px;">Experiment 3</td>
+										<td class="column2_2" style="padding-top:8px; padding-bottom:8px;">He/H<SUB>2</SUB>/C<SUB>4</SUB>F<SUB>8</SUB> with 175/18/15 sccm flow rates</SUB></td>
+										<td class="column3_2" style="padding-top:8px; padding-bottom:8px;">20 s</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<h2>Experiment 2</h2>
 					<p>
 						 This chip will contain some of the final gas sensors. The fabrication contains 3 main steps : 
 						 <ul>
@@ -448,7 +470,8 @@
 					
 					<h3 id="rie" class="subsection" onclick="return toggleMe('rie_display')"> Reactive ion etching</h3>
 					<div id="rie_display">
-						<p>To transfer the patterns into the SiO<SUB>2</SUB> layer, we use reactive ion etching with a CHF3/SF6 plasma solution during 20 seconds (
+						<p>To transfer the patterns into the SiO<SUB>2</SUB> layer, we use reactive ion etching with a He/H<SUB>2</SUB>/C<SUB>4</SUB>F<SUB>8</SUB> plasma solution 
+							(the one called SiO<SUB>2</SUB> PR 3:1 in CMi) during 20 seconds (
 							the optimal time is extracted from the <a href="../RIE/training1/doc.html">RIE experiments</a>).
 						</p>
 						<div style="position:relative; width:100%; height:270px; border:1px solid black; border-radius: 10px;">
