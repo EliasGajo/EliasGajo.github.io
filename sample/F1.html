@@ -175,9 +175,12 @@
 			idList[4] = "rie_display";
 			idList[5] = "isolation_display";
 			idList[6] = "flake_display";
-			idList[7] = "iso_display";
+			idList[7] = "iso_PMGI_display";
+			idList[8] = "iso_PPA_display";
+			idList[9] = "iso_pattern_display";
 			var homePageIdNb = [];
 			homePageIdNb[0] = 0;
+			homePageIdNb[1] = 5;
 			
 			function toggleMe(a){
 				var e=document.getElementById(a);
@@ -359,7 +362,9 @@
 						<a href="#isolation" onclick="goto('isolation')">MoS<SUB>2</SUB> transfer</a>
 						<ul id="isolation_idx">
 							<li><a href="#flake" onclick="goto('flake')">MoS<SUB>2</SUB> flake transfer</a></li>
-							<li><a href="#iso" onclick="goto('iso')">Active region isolation</a></li>
+							<li><a href="#iso_PMGI" onclick="goto('iso_PMGI')">PMGI spin coating</a></li>
+							<li><a href="#iso_PPA" onclick="goto('iso_PPA')">PPA spin coating</a></li>
+							<li><a href="#iso_pattern" onclick="goto('iso_pattern')">Active region isolation</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -421,7 +426,7 @@
 								  Steps followed for the fabrication :
 							</p>
 							<ul>
-								<li>Spin coated PPA 3% at 6000 rpm (theoretical thickness : 60 nm)</li>
+								<li>Spin coated PPA 3% at 2000 rpm (theoretical thickness : 60 nm)</li>
 								<li>Chip baked at 90 degrees during 3 minutes</li>
 							</ul>
 							<p>
@@ -509,10 +514,81 @@
 							<p>Todo</p>
 						</div>
 						
-						<h3 id="iso" class="subsection" onclick="return toggleMe('iso_display')"> Active region isolation</h3>
-						<div id="iso_display">
-							<p>Todo</p>
+						<h3 id="iso_PMGI" class="subsection" onclick="return toggleMe('iso_PMGI_display')"> PMGI spin coating</h3>
+						<div id="iso_PMGI_display">
+							<p>
+								Role of this layer : Sacrificial layer for the lift-off.
+								<br>
+								  Steps followed for the fabrication :
+							</p>
+							<ul>
+								<li>Chip baked at 190 degrees during 5 minutes (for dehydration)</li>
+								<li>Spin coated PMGI SF2s at 1000 rpm (theoretical thickness : 90 nm)</li>
+								<li>Chip baked at 190 degrees during 3 minutes</li>
+								<li>Let it cool down</li>
+								<li>Spin coated PMGI SF2s at 1000 rpm (theoretical thickness : 90 nm)</li>
+								<li>Chip baked at 190 degrees during 3 minutes</li>
+							</ul>
+							<p>
+								Total thickness of the layer : 180 nm 
+								<br>
+								  Thickness measured : No
+							</p>
 						</div>
+						
+						<h3 id="iso_PPA" class="subsection" onclick="return toggleMe('iso_PPA_display')"> PPA spin coating</h3>
+						<div id="iso_PPA_display">
+							<p>
+								Role of this layer : Layer to pattern with t-SPL technique.
+								<br>
+								  Steps followed for the fabrication :
+							</p>
+							<ul>
+								<li>Spin coated PPA 3% at 6000 rpm (theoretical thickness : 32 nm)</li>
+								<li>Chip baked at 90 degrees during 3 minutes</li>
+							</ul>
+							<p>
+								Total thickness of the layer : 32 nm
+								<br>
+								  Thickness measured : No
+							</p>
+						</div>
+						<h3 id="iso_pattern" class="subsection" onclick="return toggleMe('iso_pattern_display')"> Active region isolation</h3>
+						<div id="iso_pattern_display">
+							<p>
+								Here are the steps followed for the active region isolation : 
+								<ul>
+								<li>Remove the PPA on the contours of our active region with the NanoFrazor.</li>
+								<li>Wet etching into a TMAH solution (AZ 726 MIF) during 260 seconds.</li>
+								<li>RIE with a CHF3/SF6 plasma recipe (Si<SUB>3</SUB>N<SUB>4</SUB>_Smooth) during 5 seconds.</li>
+								</ul>
+							</p>
+							<div style="position:relative; top:0px; left:0px; width:100%; height:300px; margin-top:-30px;">
+								<div style="position:absolute; top:0px; left:0px; width:48%; height:50px;">
+									<p style="text-align:center;"><b>Contours patterning</b></p>
+								</div>
+								<div style="position:absolute; top:50px; left:0px; width:48%; height:250px;">
+									<img src="../image/img_elias/F1/beforeEtching.png" style="max-width:100%; max-height:250px; display: block; margin-left: auto; margin-right: auto;"></img>
+								</div>
+								<div style="position:absolute; top:0px; left:50%; width:50%; height:50px;">
+									<p style="text-align:center;"><b>After RIE + lift-off</b></p>
+								</div>
+								<div style="position:absolute; top:50px; left:50%; width:50%; height:250px;">
+									<img src="../image/img_elias/F1/afterEtching.jpg" style="max-width:100%; max-height:250px; display: block; margin-left: auto; margin-right: auto;"></img>
+								</div>
+							</div>
+							<h4 style=" margin-top:30px;">Remark</h4>
+							<p>
+							The surface where we transferred the MoS<SUB>2</SUB> became hydrophobic and it was difficult to spin coat on it. It was still possible to spin coat but 
+							the PMGI layer on the active region was smaller than on the other parts. The wet etching time was hence to big and almost all the PMGI is gone on the active region.
+							That's why we used the CHF3/SF6 plasma recipe rather than an oxygen plasma for the active region isolation (as an oxygen plasma require a high thickness of resist
+							as shown in <a href="E1.html">Active region isolation, Experiment 1</a>).
+							</p>
+						</div>
+					</div>
+					<h2 id="electrode" class="subsection" onclick="return toggleMe('electrode_display')">Electrodes deposition</h3>
+					<div id="electrode_display">
+						Todo
 					</div>
 				</div>
 			</div>
